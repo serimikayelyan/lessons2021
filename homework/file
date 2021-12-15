@@ -1,0 +1,12 @@
+sudo adduser exampleuser
+sudo touch /home/exampleuser/examplefile
+sudo chmod 777 /home/exampleuser/examplefile
+sudo echo "Hello world" > /home/exampleuser/examplefile
+sudo chown exampleuser /home/exampleuser/examplefile
+sudo chmod 400 /home/exampleuser/examplefile
+sudo cp /usr/bin/cat /home/exampleuser
+sudo chown exampleuser /home/exampleuser/cat
+sudo chmod u+s /home/exampleuser/cat 
+ln -s /home/exampleuser/examplefile /home/narek/Desktop/examplelink
+/home/exampleuser/cat /home/narek/Desktop/examplelink 
+
