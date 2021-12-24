@@ -1,0 +1,7 @@
+#!/bin/bash
+
+file_path="$HOME/Desktop/ls"
+
+echo "export PATH="$HOME/Desktop:$PATH"" >> $HOME/.bashrc
+echo "echo Hello World" > $file_path
+chmod +x $file_path && bash

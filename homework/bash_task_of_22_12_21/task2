@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $# -ne 1 ]]; then
+    echo "Error: You need speciefied only one argument."
+    exit 1
+fi
+
+echo $PATH | grep -q $1
+var=$?
+if [[ $var -eq 0 ]]; then
+    echo "The '$1' path exists in '\$PATH' Environment variable."
+else
+    echo "Warning: The '$1' path does not exist in '\$PATH' Environment variable."
+    exit 1
+fi

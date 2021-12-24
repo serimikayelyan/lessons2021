@@ -1,0 +1,23 @@
+#!/bin/bash
+
+export MYPATH="$HOME/Desktop"
+
+error_message="ERROR: The wrong argument. You need to specified 'dir' or 'file' as argument of file."
+
+if [[ $# != 1 ]]; then
+    echo $error_message
+    exit 1
+fi
+
+if [[ $1 == "dir" ]]; then
+    echo "The '$MYPATH' directory contains the following directories:"
+    echo
+    find $MYPATH -maxdepth 1 -type d
+elif [[ $1 == "file" ]]; then
+    echo "The '$MYPATH' directory contains the following files:"
+    echo
+    find $MYPATH -maxdepth 1 -type f
+else
+    echo $error_message
+    exit 1
+fi
