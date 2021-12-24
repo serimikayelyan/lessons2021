@@ -1,0 +1,5 @@
+#!/bin/bash
+
+name=`ls ~/Desktop`
+echo $name
+
