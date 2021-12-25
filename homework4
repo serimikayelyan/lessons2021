@@ -1,0 +1,16 @@
+#!/bin/bash
+:'task 25'
+read a b c
+if [[ $(( $a + $b  )) -gt $c ]]
+then
+	echo "y=1"
+elif [[ $(( $a + $c  )) -gt $b ]]
+then
+	echo "y=1"
+elif [[ $(( $b + $c  )) -gt $a ]]
+then 
+	echo "y=1"
+else
+	echo "y=2"
+fi
+ 
