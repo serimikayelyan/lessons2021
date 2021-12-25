@@ -1,0 +1,9 @@
+#!/bin/bash
+export a=4 b=52 c=30
+if (( a > b && a > c )); then 
+echo "a"
+elif (( b > a && b > c )); then
+echo "b"
+elif (( c > a && c > b )); then
+echo "c"
+fi 
