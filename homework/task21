@@ -1,9 +1,9 @@
 #!/bin/bash
-read  a b c
+
 if (( a > b && a > c )); then 
-echo "a"
+  echo "a"
 elif (( b > a && b > c )); then
-echo "b"
+  echo "b"
 elif (( c > a && c > b )); then
-echo "c"
+   echo "c"
 fi 
