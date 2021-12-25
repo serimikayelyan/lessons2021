@@ -1,0 +1,12 @@
+#!/bin/bash
+
+s1=$(( $2 - $1 ))
+s2=$(( $3 - $2 ))
+
+if [[ $s1 == $s2 ]]
+  then 
+      echo "True"
+  else
+      echo "False"
+fi
+
