@@ -1,5 +1,5 @@
 #!/bin/bash
-export a=4 b=52 c=30
+read  a b c
 if (( a > b && a > c )); then 
 echo "a"
 elif (( b > a && b > c )); then
