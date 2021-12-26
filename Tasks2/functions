@@ -1,0 +1,131 @@
+#!/bin/bash
+
+function task151
+{
+    sum=0;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		let sum=$sum+$i
+	    fi
+    done
+    echo $sum
+}
+
+function task152
+{
+    sum=1;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		let sum=$sum*$i
+	    fi
+    done
+    echo $sum
+}
+
+function task153
+{
+    sum=0;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 2 ]]
+	    then
+		let sum=$sum+$i
+	    fi
+    done
+    echo $sum 
+}
+
+function task154
+{
+    sum=1;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 3 ]]
+	    then
+		let sum=$sum*$i
+	    fi
+    done
+    echo $sum
+}
+
+function task155
+{
+    sum=0
+
+    for i in {10..99}
+    do
+        if [[ $i%3 -eq 0 ]]
+	then
+            let sum=$sum+$i
+	fi
+    done
+    echo $sum
+}
+
+function task156
+{
+    sum=1
+
+    for i in {10..99}
+    do 
+	if [[ $i%3 -eq 0 && $i%5 -eq 0 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
+
+function task157
+{
+    sum=0
+
+    for i in {100..999}
+    do
+        if [[ $i%5 -ne 0 ]]
+	then
+	    let	sum=$sum+$i
+	fi
+    done
+    echo $sum
+}
+
+function task158
+{
+    sum=1
+
+    for i in {100..999}
+    do
+	if [[ $i%2 -ne 0 && $i%3 -ne 0 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
+
+function task159
+{
+    sum=1
+
+    for i in {100..999}
+    do
+	if [[ $i%3 -eq 1 && $i%4 -eq 2 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
