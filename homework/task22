@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ a < b && a < c ]]; then
+  echo "a"
+elif [[ b < a && b < c ]]; then
+  echo "b"
+elif [[ c < a && c < b ]]; then
+   echo "c"
+fi
+
