@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ a && b == 2 ]]
+then
+    echo "True"
+elif [[ a && c == 2 ]]
+then 
+    echo "True"
+elif [[ b && c == 2 ]]
+then 
+    echo "true"
+else 
+    echo "false"
+fi
