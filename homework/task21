@@ -1,10 +1,11 @@
 #!/bin/bash
 
-read a b c
-if (( a > b && a > c )); then 
+
+
+if [[ a > b && a > c ]]; then 
   echo "a"
-elif (( b > a && b > c )); then
+elif [[ b > a && b > c ]]; then
   echo "b"
-elif (( c > a && c > b )); then
+elif [[ c > a && c > b ]]; then
    echo "c"
 fi 
