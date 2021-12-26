@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $a == 1 || $b == 1 || $c == 1 ]]
+then 
+echo "True"
+else
+echo "False"
+fi 
