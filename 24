@@ -1,0 +1,16 @@
+#!/bin/bash
+a=0
+if [[ $1 == 2 ]]; then
+   $a = $a + 1
+elif [[ $2 == 2 ]]; then
+   $a += 1
+elif [[ $3 == 2 ]]; then
+   $a += 1
+fi
+if [[ $a == 2 ]]; then
+    echo "true"
+else 
+    echo "false"
+fi
+
+# Hashvich@ chi ashxadi
