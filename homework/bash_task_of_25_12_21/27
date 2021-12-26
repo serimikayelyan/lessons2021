@@ -1,0 +1,14 @@
+#!/bin/bash
+
+a=$1
+b=$2
+c=$3
+if [[ $# -ne 3 ]]; then
+    echo "Petq e mutqagreq 3 argument."
+    exit 1
+fi
+if [[ $((c-b)) -eq $((b-a)) ]]; then
+    echo "True"
+else
+    echo "false"
+fi

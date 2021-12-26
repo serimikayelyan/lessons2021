@@ -1,0 +1,14 @@
+#!/bin/bash
+
+a=$1
+b=$2
+c=$3
+if [[ $# -ne 3 ]]; then
+    echo "Petq e mutqagreq 3 argument."
+    exit 1
+fi
+if [[ a -eq 2 && b -eq 2 || a -eq 2 && c -eq 2 || b -eq 2 && c -eq 2 ]]; then
+    echo "True"
+else 
+    echo "False"
+fi

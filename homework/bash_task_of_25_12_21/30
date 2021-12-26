@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [[ $# -ne 3 ]]; then
+    echo "You need to specified 3 arguments"
+    exit 1
+fi
+a=$1
+b=$2
+c=$3
+if [[ $a -gt $b && $a -gt $c ]]; then
+    if [[ $b -gt $c ]]; then
+        echo "$a $b $c"
+    else
+        echo "$a $c $b"
+    fi
+elif [[ $b -gt $a && $b -gt $c ]]; then
+    if [[ $a -gt $c ]]; then
+        echo "$b $a $c"
+    else
+        echo "$b $c $a"
+    fi
+else
+    if [[ $a -gt $b ]]; then
+        echo "$c $a $b"
+    else
+        echo "$c $b $a"
+    fi
+fi
+

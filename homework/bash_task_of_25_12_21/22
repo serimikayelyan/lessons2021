@@ -1,0 +1,16 @@
+#!/bin/bash
+
+a=$1
+b=$2
+c=$3
+if [[ $# -ne 3 ]]; then
+    echo "Petq e mutqagreq 3 argument."
+    exit 1
+fi
+if [[ $a -lt $b && $a -lt $c ]]; then
+    echo $a
+elif [[ $b -lt $a && $b -lt $c ]]; then
+    echo $b
+else
+	echo $c
+fi
