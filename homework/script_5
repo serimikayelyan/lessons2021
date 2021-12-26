@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $1+$2 -gt $3 && $2+$3 -gt $1 && $1+$3 -gt $2 ]]; then
+	echo "y=1"
+else
+	echo "y=2"
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 -ge $2 ]]; then
+	max=$1
+else
+	max=$2
+fi
+
+if [[ $max -ge $3 ]]; then
+	echo $max
+else
+	echo $3
+fi

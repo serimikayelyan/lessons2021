@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 -le $2 ]]; then
+	min=$1
+else
+	min=$2
+fi
+
+if [[ $min -le $3 ]]; then
+	echo $min
+else
+	echo $3
+fi
