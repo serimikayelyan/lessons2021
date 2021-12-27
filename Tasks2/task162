@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function main
+{
+	source functions
+	task162
+}
+
+main
