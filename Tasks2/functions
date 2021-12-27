@@ -275,31 +275,76 @@ function task165
 			    tLogicVal=true;
 			    echo "true"
 			    exit 0
-		    else
-			    echo "$tLogicVal"
+
 			    exit 0
 		    fi    
 	    fi
     done   
 }
 
+function task168
+{
+    p=false
 
+    for (( i = 2; i < $1; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		    echo "$p"
+		    exit 0
+	    else
+		    p=true
+		    echo "$p"
+		    exit 0
+	    fi
+    done
+}
 
+function task169
+{
+    let sum=($1+$2)
+    for (( i = 2; i < $sum; i++ ))
+    do
+	    if [[ $sum%$i -eq 0 ]]
+	    then
+		    z=6
+		    echo $z
+		    exit 0
+	    else
+		    z=5
+		    echo $z
+		    exit 0
+	    fi
+    done
+}
 
+function task170
+{
+    num=$1
 
+    ((num++))
+    
+    root="$(bc <<< "scale=2; sqrt($num)")"
+    
+    for (( i = 0; i <= ${#root}; i++ ))
+    do
+	    if [[ ${root:$i:1} == "." ]]
+	    then
+		    let startPoint=($i+1)
+		    let endPoint=(${#root}-$i)
+		    str=${root:$startPoint:$endPoint}
 
+		    if [[ $str == "00" ]]
+		    then
+			    echo "$num"
+			    exit 0 
+		    else
+			    task170 $num
+		    fi
+	    fi
+    done
 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
