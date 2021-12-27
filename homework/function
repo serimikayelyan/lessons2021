@@ -1,0 +1,139 @@
+#!/bin/bash
+
+
+function t.151
+{
+s=0
+for (( i = 1; i <= $1/2; i++ )) 
+  do 
+    if [[ $1%i -eq 0 ]]
+      then
+	s=$(($s+$i))
+    fi
+  done
+a=$(($s+$1))
+echo $a
+
+}
+
+
+function t.152
+{
+p=1
+for (( i=1; i <= $1/2; i++ ))
+  do
+    if [[ $1%i -eq 0 ]]
+  then
+    p=$p*$i
+  fi
+  done
+a=$(($p*$1))
+echo $a
+}
+
+
+function t.153
+{
+s=0
+for (( i=1; i <= $1; i++ ))
+  do
+    if [[ $1%i -eq 2 ]]
+  then
+    s=$(($s+$i))
+  fi
+  done
+echo $s
+}
+
+
+
+function t.154
+{
+p=1
+
+for (( i=1; i <= $1; i++ ))
+   do
+     if [[ $1%$i -eq 3 ]]
+       then 
+	       p=$(($p*$i))
+     fi
+   done
+echo $p
+
+}
+
+
+function t.155
+{
+s=0
+for (( i=10; i<100; i++ ))
+    do
+      if [[ $i%3 -eq 0 ]]
+         then s=$(($s+$i))
+      fi
+    done
+echo $s
+}
+
+
+
+function t.156
+{
+s=1
+for (( i=10; i<100; i++))
+   do
+      if [[ $i%3 -eq 0 && $i%5 -eq 0 ]]
+         then s=$(($s*$i))
+      fi
+   done
+echo $s 
+}
+
+
+function t.157
+{
+s=0
+for (( i=100; i<1000; i++ ))
+    do
+       if [[ $i%5 != 0 ]]
+           then
+	      s=$(($s+$i))
+       fi
+    done
+echo $s
+
+}
+
+
+
+function t.158
+{
+s=1
+for (( i=100; i<1000; i++ ))
+   do  
+     if [[ $i%2 -ne 0 && $i%3 -ne 0 ]]
+        then
+           s=$(( $s*$i ))
+     fi
+   done
+echo $s
+}
+
+
+
+
+function t.159
+{
+s=1
+
+for (( i=100; i<1000; i++ ))
+    do 
+	    if [[ $(($i%3)) -eq  1  &&  $(($i%4)) -eq 2 ]]
+           then
+		    s=$(($s*$i))
+        fi
+    done
+echo $s
+}
+
+
