@@ -129,3 +129,179 @@ function task159
     done
     echo $sum
 }
+
+function task160 
+{
+    for i in {100..999}
+    do
+	let sum=($i*16)
+
+	#squareRoot is variable that calculates root of num then turns to string to check numbers after point
+	squareRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#squareRoot}; x++ ))
+	do
+		if [[ ${squareRoot:$x:1} = "." ]]
+		then
+			let endPoint=(${#squareRoot}-$x)
+			let startPoint=($x+1)
+
+			newstr=${squareRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task161
+{
+    for i in {1000..9999}
+    do
+	let sum=($i*26)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+	
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+
+	done
+
+    done
+
+}
+
+function task162
+{
+    for i in {9999..1000}
+    do
+	let sum=($i*14)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task163
+{
+    for i in {9999..1000}
+    do
+	let sum=($i*18)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+			
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task164
+{
+    for i in {100..999}
+    do
+	sum=$(bc <<< "scale=2; sqrt($i)")
+	if [[ $sum > $1 ]]
+	then
+		echo $i
+		exit 0
+	fi
+    done
+}
+
+function task165
+{
+    argument=$1
+    tLogicVal=false;
+
+    root="$(bc <<< "scale=2; sqrt($argument)")"
+    for (( i = 0; i <= ${#argument}; i++ ))
+    do
+	    if [[ ${root:$i:1} == "." ]]
+	    then
+		    let startPoint=($i+1)
+		    let endPoint=(${#argument}-$i)
+		    
+		    str=${root:$startPoint:$endPoint}
+		    
+		    if [[ $str == "00" ]]
+		    then
+			    tLogicVal=true;
+			    echo "true"
+			    exit 0
+		    else
+			    echo "$tLogicVal"
+			    exit 0
+		    fi    
+	    fi
+    done   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
