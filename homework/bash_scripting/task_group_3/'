@@ -1,7 +1,0 @@
-function task_151
-{
-    [[ $1 =~ ^[0-9]+$ && $1 -ge 0 ]] && sqrt_n=`echo "scale=2; sqrt($1)" | bc` || (echo NAN && exit 1)
-    echo sqrt: $sqrt_n
-    # for i in {1..
-}
-task_151 $1 
