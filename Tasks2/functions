@@ -255,32 +255,34 @@ function task164
     done
 }
 
-function task165
-{
-    argument=$1
-    tLogicVal=false;
 
-    root="$(bc <<< "scale=2; sqrt($argument)")"
-    for (( i = 0; i <= ${#argument}; i++ ))
-    do
-	    if [[ ${root:$i:1} == "." ]]
-	    then
-		    let startPoint=($i+1)
-		    let endPoint=(${#argument}-$i)
-		    
-		    str=${root:$startPoint:$endPoint}
-		    
-		    if [[ $str == "00" ]]
-		    then
-			    tLogicVal=true;
-			    echo "true"
-			    exit 0
-
-			    exit 0
-		    fi    
-	    fi
-    done   
-}
+# Being edited
+#function task165
+#{
+#    argument=$1
+#    tLogicVal=false;
+#
+#    root="$(bc <<< "scale=2; sqrt($argument)")"
+#    for (( i = 0; i <= ${#argument}; i++ ))
+#    do
+#	    if [[ ${root:$i:1} == "." ]]
+#	    then
+#		    let startPoint=($i+1)
+#		    let endPoint=(${#argument}-$i)
+#		    
+#		    str=${root:$startPoint:$endPoint}
+#		    
+#		    if [[ $str == "00" ]]
+#		    then
+#			    tLogicVal=true;
+#			    echo "true"
+#			    exit 0
+#
+#			    exit 0
+#		    fi    
+#	    fi
+#    done   
+#}
 
 function task168
 {
@@ -346,7 +348,18 @@ function task170
 
 }
 
+function task171
+{
+    inputNum=$1
+    num=1
 
+    for (( i = 2; i <= $inputNum; i++ ))
+    do
 
+	num=$(($num*$i))
 
+    done
+
+    echo "$inputNum! = $num "
+}
 
