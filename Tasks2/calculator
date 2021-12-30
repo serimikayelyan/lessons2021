@@ -1,76 +1,102 @@
 #!/bin/bash
 
-read -p 'input math expression (only plus minus): ' exp
+
+read -p 'input math expression (only two numbers): ' exp
 
 list=()
 
-lista=()
+#action detect
+a=""
 
-startN=0
-
-#list number
-n=0
-
-#lista number
-m=1
-
-for (( i = 0; i <= ${#exp}; i++ ))
-do
-    if [[ $i -eq ${#exp} ]]
-    then
-    	    end=$i-$startN
-	    list[$n]="${exp:$startN:$end}"
-	    let n=$n+2
-	    let startN=$i+1
-    fi
-
-    if [[ ${exp:$i:1} == "+" ]]
-    then
-            end=$i-$startN
- 	    list[$n]="${exp:$startN:$end}"
-	    lista[$m]="+"
-
-	    let n=$n+2
-            let m=$m+2
-
-	    let startN=$i+1
-    fi
-
-    if [[ ${exp:$i:1} == "-" ]]
-    then
-            end=$i-$startN
-	    list[$n]="${exp:$startN:$end}"
-	    lista[$m]="-"
-
-	    let n=$n+2
-	    let m=$m+2
-
-	    let startN=$i+1
-    fi
-
-done
-
-#lista array sequence number
-num=1
-
-for (( i = 0; i <= ${#lista[@]}; i++ ))
-do
-
-	if [[ ${lista[$num]} == "+" ]]
+function action
+{
+	if [[ $a == "+" ]]
 	then
-		let left=$num-1
-		let right=$num+1
-		let list[$right]=${list[$left]}+${list[$right]}
-		let num=$num+2
+		let answer=${list[0]}+${list[1]}
+		echo "Answer: $answer"
+	elif [[ $a == "-" ]]
+	then
+		let answer=${list[0]}-${list[1]}
+		echo "Answer: $answer"
+	elif [[ $a == "*" ]]
+	then
+		let answer=${list[0]}*${list[1]}
+		echo "Answer: $answer"
+	elif [[ $a == "/" ]]
+	then
+		let answer=${list[0]}/${list[1]}
+		echo "Answer: $answer"
 	fi
+}
+#counts action symbols for exceptions
+count=0
+
+function main 
+{
+	for (( i = 0; i <= ${#exp}; i++ ))
+	do
+		if [[ ${exp:$i:1} == "+" || ${exp:$i:1} == "-" || ${exp:$i:1} == "/" || ${exp:$i:1} == "*" ]]
+		then
+			let count=$count+1
+		fi
+	done
 	
-	if [[ ${lista[$num]} == "-" ]]
+	if [[ $count -gt 1 ]]
 	then
-		let left=$num-1
-		let right=$num+1
-		let list[$right]=${list[$left]}-${list[$right]}
-		let num=$num+2
+		echo "False expression"
+		exit 127
+	else
+		cutter
+		action
 	fi
-done
+}
 
-echo "Answer: "${list[-1]}
+function cutter
+{
+	for (( i = 0; i <= ${#exp}; i++ ))
+	do
+		if [[ ${exp:$i:1} == "+" ]]
+		then
+			a="+"
+			
+			let startPoint=$i+1
+			let endPoint=${#exp}-$startPoint
+			list[0]=${exp:0:$i}
+			list[1]=${exp:$startPoint:$endPoint}
+			
+			break
+		elif [[ ${exp:$i:1} == "-" ]]
+		then
+			a="-"
+
+                        let startPoint=$i+1
+                        let endPoint=${#exp}-$startPoint
+                        list[0]=${exp:0:$i}
+                        list[1]=${exp:$startPoint:$endPoint}
+
+                        break
+		elif [[ ${exp:$i:1} == "/" ]]
+                then
+                        a="/"
+
+                        let startPoint=$i+1
+                        let endPoint=${#exp}-$startPoint
+                        list[0]=${exp:0:$i}
+                        list[1]=${exp:$startPoint:$endPoint}
+
+                        break
+		elif [[ ${exp:$i:1} == "*" ]]
+                then
+                        a="*"
+
+                        let startPoint=$i+1
+                        let endPoint=${#exp}-$startPoint
+                        list[0]=${exp:0:$i}
+                        list[1]=${exp:$startPoint:$endPoint}
+
+                        break
+		fi
+	done	
+}
+
+main
