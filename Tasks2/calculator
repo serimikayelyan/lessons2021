@@ -1,0 +1,76 @@
+#!/bin/bash
+
+read -p 'input math expression (only plus minus): ' exp
+
+list=()
+
+lista=()
+
+startN=0
+
+#list number
+n=0
+
+#lista number
+m=1
+
+for (( i = 0; i <= ${#exp}; i++ ))
+do
+    if [[ $i -eq ${#exp} ]]
+    then
+    	    end=$i-$startN
+	    list[$n]="${exp:$startN:$end}"
+	    let n=$n+2
+	    let startN=$i+1
+    fi
+
+    if [[ ${exp:$i:1} == "+" ]]
+    then
+            end=$i-$startN
+ 	    list[$n]="${exp:$startN:$end}"
+	    lista[$m]="+"
+
+	    let n=$n+2
+            let m=$m+2
+
+	    let startN=$i+1
+    fi
+
+    if [[ ${exp:$i:1} == "-" ]]
+    then
+            end=$i-$startN
+	    list[$n]="${exp:$startN:$end}"
+	    lista[$m]="-"
+
+	    let n=$n+2
+	    let m=$m+2
+
+	    let startN=$i+1
+    fi
+
+done
+
+#lista array sequence number
+num=1
+
+for (( i = 0; i <= ${#lista[@]}; i++ ))
+do
+
+	if [[ ${lista[$num]} == "+" ]]
+	then
+		let left=$num-1
+		let right=$num+1
+		let list[$right]=${list[$left]}+${list[$right]}
+		let num=$num+2
+	fi
+	
+	if [[ ${lista[$num]} == "-" ]]
+	then
+		let left=$num-1
+		let right=$num+1
+		let list[$right]=${list[$left]}-${list[$right]}
+		let num=$num+2
+	fi
+done
+
+echo "Answer: "${list[-1]}
