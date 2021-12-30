@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function t.162
+{
+for (( i=9999; i>999; i--))
+    do
+      s=$(($i*14))
+      for (( j=1; j<$i; j++ ))
+         do
+
+	    if [[ $(($j*$j)) -eq  $s ]]
+              then
+		    echo $i
+		    exit
+		   
+	    fi	   
+    done
+done
+
+}
+
+
+function t.163
+{
+for (( i=9999; i>999; i--))
+    do
+      s=$(($i*18))
+      for (( j=1; j<$i; j++ ))
+         do
+
+	    if [[ $(($j*$j)) -eq  $s ]]
+              then
+		    echo $i
+		    exit
+		   
+	    fi	   
+    done
+done
+}
+
+
+
+function t.164
+{
+for (( i=100; i<1000; i++))
+    do
+      for (( j=1; j<$(($i/2)); j++ ))
+         do
+		 if [[ $(($j*$j)) -eq $i && $j -gt $1 ]]
+                  then
+		      echo $i
+		      exit
+	    fi
+    done
+done
+}
