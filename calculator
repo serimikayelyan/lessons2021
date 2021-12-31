@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "Enter two numbers"
+echo "number 1"
+read a
+echo "number 2"
+read b
+
+echo "Enter Choice : "
+echo "1) Addition (+)"
+echo "2) Subtraction (-)"
+echo "3) Multiplication (*)"
+echo "4) Division (/)"
+read  ch
+
+if [[ ${a} =~ ^[[:digit:]]+$  && ${b} =~ ^[[:digit:]]+$ ]];then 
+case $ch in 
+	1)res=`echo $a + $b | bc`
+	;;
+	2)res=`echo $a - $b | bc`
+	;;
+	3)res=`echo $a \* $b | bc`
+	;;
+	4)res=`echo "$a / $b" | bc`
+	;;
+	*)res="Wrong choice"
+esac
+else
+	res="Wrong attribution"
+fi
+
+echo "Result : $res"
