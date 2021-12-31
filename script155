@@ -1,0 +1,4 @@
+#!/bin/bash
+source func.sh
+ 
+script_155
