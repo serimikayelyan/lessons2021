@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source func.sh
+
+echo "Enter number"
+read a
+
+script_151

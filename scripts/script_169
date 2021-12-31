@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source func.sh
+
+echo "Enter two number"
+echo "Number 1"
+read a
+echo "Number 2"
+read b
+
+script_169
