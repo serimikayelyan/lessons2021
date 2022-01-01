@@ -145,6 +145,66 @@ script_159 ()
 
 
 
+script_160 () {
+	for i in {100..1000}
+	do
+		a=$(($i*16))
+		aa=`echo "sqrt($a)" | bc`
+		if [[ $(($aa*$aa)) -eq $a ]]
+		then
+			echo $i
+			break
+		fi
+	done
+}
+ 
+
+script_161 () {
+
+	for (( i = 1000; i < 10000 ; i++ ))
+	do
+		a=$(($i*26))
+		aa=`echo "sqrt($a)" | bc `
+		if [[ $(($aa*$aa)) -eq $a ]]
+		then
+			echo $i
+			break
+		fi
+	done
+}
+
+
+script_162 () {
+	for (( i=9999; i>1000; i-- ))
+	do 
+		a=$(($i*14))
+		aa=`echo "sqrt($a) " | bc `
+		if [[ $(($aa*$aa)) -eq $a ]]
+		then 
+			echo $i
+			break
+		fi 
+	done
+
+
+}
+
+script_163 () {
+	for (( i=9999; i>1000; i-- ))
+   do
+           a=$(($i*18))
+          aa=`echo "sqrt($a)" | bc `
+          if [[ $(($aa*$aa)) -eq $a ]]
+           then
+               echo $i
+               break
+          fi
+ done
+}
+
+
+
+
 
 script_168()
   {
