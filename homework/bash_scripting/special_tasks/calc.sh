@@ -295,5 +295,5 @@ function main
 	(( ! $looping )) && break
     done
 }
-[[ $# -gt 1 ]] && echo "Use \"\" please. ('*' does this:" * ")" && return 3 
+[[ $# -gt 1 ]] && echo "Use \"\" next time. (Main reason: '*' does this:" * ")" && return 3 
 main "$1"
