@@ -18,13 +18,14 @@ echo "CHOOSE"
 
 read ch
 case $ch in
-     "1" )res=`echo $a + $b | bc`
+     "1" )res=$(expr $a + $b)
+
         echo "Sum is $res"
         ;;
-     "2" )res=`echo $a - $b | bc`
+     "2" )res=$(expr $a - $b)
         echo "Sub is $res"
         ;;
-      "3" )res=`echo $a \* $b | bc`
+     "3" )res=$(expr $a \*  $b)
         echo "Mul is $res"
         ;;
      "4" )res=`echo $a / $b | bc`
@@ -33,7 +34,7 @@ case $ch in
       "5" )res=`echo "sqrt($a * $b)" | bc `
         echo "Square_root is $res"
          ;;
-     "6" )res=`echo $a % $b | bc`
+       "6" )res=$(expr $a % $b)
         echo "Balance is $res"
         ;;
      #"7" ) res1= `Math.cos($a)`
@@ -46,17 +47,17 @@ esac
 }
 cal
 ####???
-read -p "For continue input Y or N :" ans
+read -p "For continue input Y  :" ans
 while [[ $ans -eq "Y" ]]
 do
         cal
-        read -p "For continue input Y or N :" ans
+        read -p "For continue input Y  :" ans
 
 
 
-if [[ $ans -eq "N" ]]
-then
-   break
-fi
+   if [[ $ans != "Y" ]]
+      then
+         exit
+    fi
 done
 
