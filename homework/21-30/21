@@ -1,0 +1,13 @@
+#!/bin/bash
+
+  a=1       #a=$a
+  b=7       #b=$b   
+  c=5       #c=$c
+  if [[ $a > $b && $a > $c ]]; then
+       echo "$a"
+  elif  [[ $b > $c && $b > $a ]]; then
+        echo "$b"
+  else 
+       echo "$c"
+  fi
+ 

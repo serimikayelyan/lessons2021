@@ -1,0 +1,11 @@
+#!/bin/bash
+
+  a=46      #a=$a
+  b=25      #b=$b
+  c=13      #c=$c
+  if [[ $a+$b < $c || $a+$c < $b || $b+$c < $a ]]; then
+        echo "y=1"
+  else
+        echo "y=2"
+  fi
+
