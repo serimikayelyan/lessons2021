@@ -41,10 +41,9 @@ function main
     else
 	if [[ -d $1 ]]
 	then
-	NEWPATH=$1/*
-	arg
-else
-	echo no such file
+	    arg
+	else
+	    echo "No such directory"
 	fi
     fi
 
