@@ -1,0 +1,53 @@
+#!/bin/bash
+
+NEWPATH=$PWD/*
+PATHARG=$1/*
+
+
+function noArg
+{
+    for i in $NEWPATH
+    do
+        echo $i
+    
+        if [[ -d $i ]]
+        then
+       	    NEWPATH=$NEWPATH/*
+	    noArg
+	fi
+
+    done
+}
+
+function arg
+{
+    for i in $PATHARG
+    do
+	echo $i
+
+	if [[ -d $i ]]
+	then
+	    PATHARG=$PATHARG/*
+	    arg
+    	fi
+    done	
+}
+
+function main
+{
+    if [[ $1 == "" ]]
+    then
+        noArg
+    else
+	if [[ -d $1 ]]
+	then
+	NEWPATH=$1/*
+	arg
+else
+	echo no such file
+	fi
+    fi
+
+}
+
+main $1
