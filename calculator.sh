@@ -4,8 +4,14 @@ function cal
 
 echo "Enter fist number"
 read a
+if ! [[ "$a &&  $b" =~ "^[0-9]+ $" ]]
+       then
+               echo "Input only integers"
+               exit
+        fi
 echo "Enter second number"
 read b
+
 echo "1.Addition"
 echo "2.Subtraction"
 echo "3.Multiplication"
