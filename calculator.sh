@@ -4,11 +4,7 @@ function cal
 
 echo "Enter fist number"
 read a
-if ! [[ "$a &&  $b" =~ "^[0-9]+ $" ]]
-       then
-               echo "Input only integers"
-               exit
-        fi
+  
 echo "Enter second number"
 read b
 
@@ -22,7 +18,12 @@ echo "6.Division_balance"
 #echo "8.SIN"
 echo "CHOOSE"
 
+               
+        
+
 read ch
+if  [[ ${a} =~ ^[[:digit:]]+$  && $b =~ ^[[:digit:]]+$ ]]
+then
 case $ch in
      "1" )res=$(expr $a + $b)
 
@@ -50,6 +51,9 @@ case $ch in
            #;;
 
 esac
+else
+	echo "input only integers"
+fi
 }
 cal
 ####???
@@ -66,4 +70,3 @@ do
          exit
     fi
 done
-
