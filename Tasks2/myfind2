@@ -23,7 +23,7 @@ function arg
 					exit 0
 				fi
 			fi
-			done
+		done
 	fi
 	    
 	if [[ -d $i ]]
