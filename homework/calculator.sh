@@ -1,7 +1,6 @@
 #!/bin/bash
 
   sum=0
-  z="a"
   echo "type only numbers"
   echo "enter the first number"
   read n1
@@ -13,6 +12,8 @@
   echo "4.Division"
   echo "enter your choice"
   read ch
+  if  [[ $n1 =~ ^[[:digit:]]+$  && $n2 =~ ^[[:digit:]]+$ ]]
+  then
   case $ch in
        1)sum=`expr $n1 + $n2`
                echo "Sum = "$sum;;
@@ -24,4 +25,6 @@
                echo "Div = "$sum;;
        *)echo "invalid choice";;
   esac
-
+  else
+  echo "error : Not a number"	 
+  fi 
