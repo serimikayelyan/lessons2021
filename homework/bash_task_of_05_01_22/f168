@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source function
+
+function main
+{
+    read -p "Enter the prime number: " n
+    hw_168 $n
+}
+
+main

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+re='^[0-9]+$'
+read -p "Enter first number: " a
+[[ ! $a =~ $re ]] && echo "Not number." && exit 1
+
+read -p "Enter second number: " b
+[[ ! $b =~ $re ]] && echo "Not number." && exit 1
+
+read -p "Enter choice(+,-,*,/): " ch
+
+case $ch in
+ '+')res=`echo $a + $b | bc`
+     echo "Result: $res" ;;
+ '-')res=`echo $a - $b | bc`
+     echo "Result: $res" ;;
+ '*')res=`echo $a \* $b | bc`
+     echo "Result: $res" ;;
+ '/')[[ $b -eq 0 ]] && echo "Error: The number not devide on zero." && exit 1;
+     res=`echo "scale=2; $a / $b" | bc`
+     echo "Result: $res" ;;
+  *) echo Error: invalid character;;
+esac

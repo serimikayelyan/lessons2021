@@ -4,10 +4,10 @@ a=$1
 b=$2
 c=$3
 if [[ $# -ne 3 ]]; then
-    echo "Petq e mutqagreq 3 argument."
+    echo "You need to specified 3 arguments."
     exit 1
 fi
-if [[ a -eq 1 || b -eq 1 || c -eq 1 ]]; then
+if [[ $a -eq 1 || $b -eq 1 || $c -eq 1 ]]; then
     echo "True" 
 else 
     echo "False"

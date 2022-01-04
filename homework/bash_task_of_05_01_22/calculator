@@ -1,0 +1,36 @@
+#!/bin/bash
+
+a=$1
+b=$2
+c=$3
+re='^[0-9]+$'
+if ! [[ $a =~ $re && $c =~ $re ]] ; then
+   echo "Error: Not a number" >&2; exit 1
+fi
+ch='+ - \* /'
+bool=1
+
+for i in $ch; do
+    if [[ $b == $i ]]; then
+	bool=0
+    fi
+done
+
+[[ $bool -ne 0 ]] && echo "Not a character" && exit 1
+
+if [[ $b == '+' ]]; then
+    sum=$(($a+$c))
+    echo $sum
+elif [[ $b == '*' ]]; then
+    multiple=$(($a*$c))
+    echo $multiple
+elif [[ $b == '/' ]]; then
+    [[ $c -eq 0 ]] && echo "Error: The number not devide on zero." && exit 1;
+    devide=$(($a/$c))
+    echo $devide
+elif [[ $b == '-' ]]; then
+    minus=$(($a-$c))
+    echo $minus
+else
+    echo "ERROR"
+fi

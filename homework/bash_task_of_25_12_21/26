@@ -4,7 +4,7 @@ a=$1
 b=$2
 c=$3
 if [[ $# -ne 3 ]]; then
-    echo "Petq e mutqagreq 3 argument."
+    echo "You need to specified 3 arguments."
     exit 1
 fi
 if [[ $((a%2)) -eq 0 || $((b%2)) -eq 0 || $((c%2)) -eq 0 ]]; then

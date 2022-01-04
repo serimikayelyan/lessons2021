@@ -1,0 +1,9 @@
+#!/bin/bash
+
+source function
+
+function main
+{
+    hw_158
+}
+main
