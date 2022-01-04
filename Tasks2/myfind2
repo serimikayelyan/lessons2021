@@ -20,7 +20,6 @@ function arg
 				if [[ "$file" == "$tmp" ]]
 				then
 					echo $i
-					exit 0
 				fi
 			fi
 		done
