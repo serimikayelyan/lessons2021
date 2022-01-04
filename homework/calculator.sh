@@ -10,6 +10,8 @@ echo "2.(-) subtraction"
 echo "3.(*) multiplication"
 echo "4.(/) division"
 read ch
+if [[ ${a} =~ ^[[0-9]]+$  && ${b} =~ ^[[0-9]]+$ ]]
+then
 
 case $ch in
 	1)res=`echo $a + $b | bc`
@@ -21,5 +23,8 @@ case $ch in
 	4)res=`echo "scale=2; $a / $b" | bc`
          ;;
 esac
-echo "Result : $res"
 
+echo "Result : $res"
+else 
+echo "error"
+fi
