@@ -1,0 +1,7 @@
+#!/bin/bash
+for (( i=10; i<100; i++ )); do
+    if [[ $i%3 -eq 0 ]]; then
+        sum=$(($sum+$i))
+    fi
+done
+echo "3-i bazmapatik erknish tveri gumar@: " $sum

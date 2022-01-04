@@ -1,0 +1,10 @@
+#!/bin/bash
+for (( i=1000; i<10000; i++ )); do
+    a=$(( $i*26 ))
+    for (( j=1; j<$(( $i/2 )); j++ )); do
+        if [[ $a -eq $(($j*$j)) ]]; then
+	echo "amenapoqr qaranish tiv@: " $a
+        exit
+        fi
+    done
+done
