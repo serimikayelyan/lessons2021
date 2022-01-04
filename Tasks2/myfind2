@@ -28,7 +28,7 @@ function arg
 	    
 	if [[ -d $i ]]
 	then
-		path=$path/*
+		path=$i/*
 		arg
 	fi
     done
