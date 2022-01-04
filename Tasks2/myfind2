@@ -20,7 +20,6 @@ function arg
 				if [[ "$file" == "$tmp" ]]
 				then
 					echo $i
-					exit 0
 				fi
 			fi
 			done
@@ -28,7 +27,7 @@ function arg
 	    
 	if [[ -d $i ]]
 	then
-		path=$path/*
+		path=$i/*
 		arg
 	fi
     done
