@@ -269,7 +269,7 @@ function task_165
 	if [[ $i -eq 3 ]]; then
 	    t=true
 	    break
-	elif [[ $i -lt 3 ]]; then
+        elif [[ $i -lt 3 || ! $(($i % 3)) -eq 0 ]]; then
 	    t=false
 	    break
 	fi
@@ -296,7 +296,7 @@ function task_166
 	if [[ $i -eq 4 ]]; then
 	    y=1
 	    break
-	elif [[ $i -lt 4 ]]; then
+        elif [[ $i -lt 4 || ! $(($i % 4)) -eq 0 ]]; then
 	    y=0
 	    break
 	fi
