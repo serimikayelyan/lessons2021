@@ -3,7 +3,6 @@
 echo "Enter Two numbers : "
 read u
 read e
-my_list=( 0 1 2 3 4 5 6 7 8 9 )
 echo "Enter Choice :"
 echo "1. Addition"
 echo "2. Subtraction"
