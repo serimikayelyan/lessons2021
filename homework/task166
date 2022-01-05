@@ -1,0 +1,9 @@
+#!/bin/bash
+source function
+
+function main
+{
+    task166
+}
+main
+
