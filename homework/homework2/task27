@@ -1,0 +1,12 @@
+#!/bin/bash
+
+read -p "run number " num
+read -p "run number " num1
+read -p "run number " num2
+
+
+if [[ $(($num - $num1)) == $(($num1 - $num2)) ]]; then
+   echo "progresia e"
+else
+   echo "progresia che"
+fi

@@ -1,0 +1,224 @@
+#!/bin/bash
+
+task_151() {
+res=0
+for (( i = 1 ; i <= $1; i++ )); do
+ if [[ $1%$i -eq 0 ]];
+    then
+         res=$(($res + $i))
+ fi
+done
+
+echo $res
+}
+
+
+##############
+
+task_152() {
+res=1
+for (( i = 2 ; i <= $1; i++ )); do
+ if [[ $1%$i -eq 0 ]];
+    then
+         res=$(($res * $i))
+ fi
+done
+
+echo $res
+}
+
+
+
+################
+
+task_153() {
+res=0
+for (( i = 1 ; i <= $1; i++ )); do
+ if [[ $1%$i -eq 2 ]];
+    then
+         res=$(($res + $i))
+ fi
+done
+
+echo $res
+}
+
+
+
+
+###############
+
+task_154() {
+res=1
+for (( i = 1 ; i <= $1; i++ )); do
+ if [[ $1%$i -eq 3 ]];
+    then
+         res=$(($res * $i))
+ fi
+done
+
+echo $res
+}
+
+
+
+
+
+task_155() {
+   for ((i = 10; i < 100; i++)); do
+		if (( $i % 3 == 0 )); then
+			add=$(($add + $i))
+		fi
+	done
+	echo "$add"
+}
+
+
+
+#i########
+task_156() {
+	res=1
+   for ((i = 10; i < 100; i++)); do
+                if (( $i % 3 == 0 && $i % 5 == 0 )); then
+                        res=$(($res * $i))
+                fi
+        done
+        echo "$res"
+}
+
+
+########
+task_157() {
+   for ((i = 100; i < 1000; i++)); do
+                if (( $i % 5 != 0 )); then
+                        resolt=$(($resolt + $i))
+                fi
+        done
+        echo "$resolt"
+}
+
+
+
+########
+task_158() {
+	res1=1
+   for ((i = 100; i < 1000; i++)); do
+                if (( $i % 2 != 0 && $i % 3 != 0 )); then
+                        res1=$(($res1 * $i))
+                fi
+        done
+        echo "$res1"
+}
+
+
+########
+
+task_159() {
+        num=1
+        for ((i = 100; i < 862; i++)); do
+                if (( $i % 3 == 1 && $i % 4 == 2 )); then
+                        num=$((num*=$i))
+                fi
+        done
+        echo "$num"
+}
+
+
+##############
+
+task_165()
+{
+        if (( $1 == 3 )); then
+                echo "3-i astichan e";
+        elif (( $1 % 3 == 0)); then
+                echo  $(task_165 $(($1/3))) ;
+        else
+                echo "3-i astichan che";
+        fi
+}
+
+
+################
+
+task_166()
+{
+        if (( $1 < 4 )); then
+                echo "4-i astichan e";
+        elif (( $1 % 4 != 0)); then
+                echo "4-i astichan che";
+        else
+                echo  $(task_166 $(($1/4)))
+        fi
+}
+
+
+###############
+
+task_168() {
+p=true
+for ((i = 2; i < $1; i++)); do
+ if (( $1 % $i == 0 )); then
+    p=false
+    break;
+ fi
+ done
+ if [[ $p == true ]]; then
+        echo "parz e $p"
+else
+        echo "parz che $p"
+fi
+
+}
+
+
+##################
+
+task_169() {
+p=5
+for ((i = 2; i < $(($1 + $2)); i++)); do
+ if (( $(($1 +$2)) % $i == 0 )); then
+    p=6
+    break;
+ fi
+ done
+ if [[ $p == 5 ]]; then
+        echo "parz e $p"
+else
+        echo "parz che $p"
+fi
+
+}
+
+
+#################
+
+task_171() {
+        read -p "run number " num
+        re='^[0-9]+$'
+        if ! [[ $num =~ $re ]] ; then
+           echo "error: Not a number" >&2; exit 1
+        fi
+
+        result=1
+        while (( $num > 1 ))
+        do
+                result=$(($result * $num))
+                num=$(($num - 1))
+        done
+        echo $result
+}
+
+
+#################
+
+task_171_1 () {
+    local num=$1
+    if [[ $num -eq 0 ]]; then
+        echo 1
+    else
+        echo $((num*$(f $num-1)))
+    fi
+}
+
+
+

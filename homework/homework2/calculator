@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Enter first value:"
+read num1
+echo "Enter second value"
+read num2
+echo "Enter action symbol"
+read action
+
+re='^[0-9]+$'
+if ! [[ $num1 =~ $re && $num2 =~ $re ]] ; then
+   echo "error: Not a number" >&2; exit 1
+fi    
+case $action in
+"+") echo "$num1 + $num2" | bc;;
+"-") echo "$num1 - $num2"  | bc;;
+"/") if [ $num2 -eq 0 ]; then
+       echo "Error: Delimiter by zero";
+     else
+       echo "$num1 / $num2" | bc;
+     fi;;
+"*") echo "$num1 * $num2" | bc;;
+*) echo "Command not found!"
+esac
+
+
+

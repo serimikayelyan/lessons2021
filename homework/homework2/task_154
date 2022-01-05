@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source function
+function main
+{
+task_154 $1
+}
+main $1
