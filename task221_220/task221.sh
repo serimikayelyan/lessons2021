@@ -4,7 +4,7 @@ count=0
 sum=0
 for i in ${#arr[@]}
  do
-	 if [[ $i > 0 ]]
+	 if [[ $i -gt  0 ]]
 	   then
 		count=$(($count+1))
 		sum=$(($sum + $i))
