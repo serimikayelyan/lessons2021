@@ -1,12 +1,222 @@
-sudo adduser exampleuser
-sudo touch /home/exampleuser/examplefile
-sudo chmod 777 /home/exampleuser/examplefile
-sudo echo "Hello world" > /home/exampleuser/examplefile
-sudo chown exampleuser /home/exampleuser/examplefile
-sudo chmod 400 /home/exampleuser/examplefile
-sudo cp /usr/bin/cat /home/exampleuser
-sudo chown exampleuser /home/exampleuser/cat
-sudo chmod u+s /home/exampleuser/cat 
-ln -s /home/exampleuser/examplefile /home/narek/Desktop/examplelink
-/home/exampleuser/cat /home/narek/Desktop/examplelink 
+#!/bin/bash
+
+function task151
+{
+n=$1
+mek=1
+for (( i=2; i<=$n; i++ ))
+do
+if [[ $(( $n % $i)) -eq 0 ]]; then
+    (( mek += $i ))
+fi
+done
+echo $mek
+}
+
+function task152
+{
+n=$1
+
+for (( i=2; i<$1; i++ ))
+do
+    if [[ $(( $n % $i)) -eq 0 ]]; then
+            (( n *= $i ))
+fi
+done
+echo $n
+}
+
+
+function task153
+{
+n=$1
+for (( i=1; i<$1; i++ ))
+do
+    if [[ $(( $1 % $i )) ]]; then
+        (( $1 += $i  ))
+    fi
+done
+echo $n
+}
+
+
+function task154
+{
+mek=1
+for (( i=2; i<$1; i++ ))
+do
+    if [[ $(( $1 % $i )) -eq 3 ]]; then
+            (( mek *= $i ))
+    fi
+done
+echo $mek
+}
+
+
+function task155
+{
+taserkus=12
+for (( i=13; i<100; i++ ))
+do
+        if ! (( $i % 3 )); then
+            (( taserkus += $i ))
+    fi
+done
+echo $taserkus
+}
+
+
+function task156
+{
+tasnyhing=15
+for (( i=16; i<100; i++ ))
+do
+    if ! (( $i % 15 ));then
+        (( tasnyhing *= $i ))
+    fi
+done
+echo $tasnyhing
+}
+
+
+function task157
+{
+gumar=$(( ( 100 + 999 ) * 450 ))
+
+haryur=100
+
+for (( i=101; i<1000; i++ ))
+do
+    if ! (( $i % 5 )); then
+        (( haryur += $i ))
+    fi
+done
+echo $(( $gumar - $haryur ))
+}
+
+function task158
+{
+haryur=100
+for (( i=101; i<1000; i++ ))
+do
+    if [[ ! $(($i % 6 )) -eq 0 ]]; then
+       (( haryur *= $i ))
+    fi
+done
+echo $haryur
+}
+
+function task159
+{
+mek=1
+for (( i=100; i<1000; i++ ))
+do
+    if [[ $(( $i % 3 )) -eq 1 && $(( $i % 4 )) -eq 2 ]]; then
+       (( mek *= $i ))
+    fi
+    echo $mek
+done
+echo $mek
+}
+
+
+function task160
+{
+for (( i=100; i<1000; i++ ))
+do
+    x=` bc <<< " scale=0; sqrt( $i * 16 ) " `
+    if [[ $(( $x * $x )) -eq $(( $i * 16 )) ]]; then
+        echo $i
+	break
+    fi
+done
+}
+
+
+function task161
+{
+for (( i=1000; i<10000; i++ ))
+do      
+    x=` bc <<< " scale=0; sqrt( $i * 26 ) " `
+    if [[ $(( $x * $x )) -eq $(( $i * 26 )) ]]; then
+        echo $i
+        break
+    fi
+done
+}
+
+
+function task162
+{
+for (( i=9999; i>999; i-- ))
+do
+    x=` bc <<< " scale=0; sqrt( $i * 14 ) " `
+    if [[ $(( $x * $x )) -eq $(( $i * 14 )) ]]; then
+    echo $i
+    break
+    fi  
+done
+}
+
+function task163
+{
+for (( i=9999; i>999; i-- ))
+do
+    x=` bc <<< " scale=0; sqrt( $i * 14 ) " `
+    if [[ $(( $x * $x )) -eq $(( $i * 14 )) ]]; then
+    echo $i
+    break
+    fi
+done
+}
+
+
+function task164
+{
+n=$1
+for (( i=100; i<1000; i++ ))
+do
+    x=` bc <<< "sqale=0; sqrt( $i ) " ` 
+    if [[ $x -gt $1 ]]; then
+    fi
+done
+}
+
+
+function task165
+{
+
+}
+
+
+function task166
+{
+
+}
+
+
+function task167
+{
+
+}
+
+
+function task168
+{
+
+}
+
+
+function task169
+{
+
+}
+
+
+function task170
+{
+
+}
+
+
 
