@@ -1,2 +1,2 @@
-ip=(`ifconfig | grep "inet " | awk '{print $2}' `)
+ip=(`ifconfig | grep "inet " | awk '{print $(NF)}' `)
 echo ${ip[-1]}
