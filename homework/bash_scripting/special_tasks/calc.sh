@@ -26,10 +26,16 @@ function pow
     local exponent=$2
     local power=1
 
-    for ((i=0;i<$exponent;i++)); do
-	((power*=$base))
-    done
-
+    if [[ $exponent -lt 0 ]]; then
+	for ((i=$exponent;i<0;i++)); do
+	    ((power/=$base))
+	done
+    else
+        for ((i=0;i<$exponent;i++)); do
+            ((power*=$base))
+        done
+    fi
+    
     echo $power
 }
 
@@ -53,7 +59,7 @@ function check
 
     if [[ ! $input =~ ^[0-9\ ( )${operators[*]}]+$ ]]; then
         echo 1
-    elif [[ ! $input =~ ^[\ ]*[\(-+0-9] ]]; then
+    elif [[ ! $input =~ ^[\ ]*[-+0-9\(] ]]; then
 	echo 2
     else
 	input=(${input[@]})
