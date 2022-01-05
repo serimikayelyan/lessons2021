@@ -1,0 +1,231 @@
+#!/bin/bash 
+
+function task151
+{
+echo "Enter numbers"
+read a
+num=0
+if [[ $num =~ ^[[0-9]]+$ ]]
+then
+	for (( i=1; i <= $a/2; i++))
+   do 
+if [[ $a%$i -eq 0 ]]
+   then 
+num=$(($num + $a))
+fi
+done
+    echo $num
+else 
+       echo "error"
+fi       
+}
+
+
+
+function task152
+{
+	echo "Enter numbers"
+read a
+num=1
+if [[ $num =~ ^[[0-9]]+$ ]]
+then
+	
+for (( i=1; i <= $a/2; i++ ))
+    do
+       if [[ $a%$i -eq 0 ]]
+         then
+	      num=$(($a*$i))
+       fi
+done
+echo $num
+else
+	echo "error"
+fi
+}
+
+
+
+function task153
+{
+
+	read a
+	num=0
+if [[ $num =~ ^[[0-9]]+$ ]]
+then
+	for (( i=1; i <= $a; i++ ))
+	do
+		if [[ $a%$i -eq 2 ]]
+		then 
+			num=$(($a + $i))
+		fi
+	done
+	echo $num
+else 
+	echo "error"
+fi
+}
+
+
+
+function task154
+{
+
+        read a
+        num=1
+if [[ $num =~ ^[[0-9]]+$ ]]
+then
+        for (( i=1; i <= $a; i++ ))
+        do
+                if [[ $a%$i -eq 3 ]]
+                then
+                        num=$(($a*$i))
+                fi
+        done
+        echo $num
+else
+        echo "error"
+fi
+}
+
+
+function task155
+{
+sum=0
+	for (( i=10; i < 100; i++ ))
+	do
+		if [[ $i%3 -eq 0 ]]
+		then
+			sum=$(($sum + $i))
+		fi
+	done
+	echo $sum
+}
+
+function task156
+{ 
+	sum=1
+	for (( i=10; i < 100; i++ ))
+	do 
+		if [[ $i%3 -eq 0  && $i%5 -eq 0 ]]
+		then
+			sum=$(($sum*$i))
+		fi
+	done
+	echo $sum
+}
+function task157
+{
+	num=0
+	for (( i=100; i < 1000 ; i++ ))
+	do
+		if [[ $i%5 -ne 0]]
+		then
+			num=$(($sum + $i))
+		fi
+	done
+	echo $num
+}
+
+
+
+function task158
+{
+	y=1
+	for ((i=100; i < 1000 ; i++ ))
+	do
+		if [[ $i%2 -ne 0 && $i%3 -ne 0 ]]
+		then
+			y=$(($y*$i))
+		fi
+	done
+	echo $y
+}
+
+ function task159
+{
+	y=1
+	for ((i=100; i < 1000 ; i++ ))
+	do
+		if [[ $i%3 -eq 1 && $i%4 -eq 2 ]]
+		then
+			y=$(($y*$i))
+		fi
+	done
+	echo $y
+}
+
+
+function task160
+{
+	a=1
+	for (( i=100; i < 1000; i++))
+	do
+		a=$(($i*16))
+		for ((j=1; j < $i/2; j++))
+		   do	
+			if [[ $(($j*$j)) -eq $a ]]
+			   then
+				echo $i
+			fi
+		done
+	done
+}
+
+
+
+function task161
+{
+	a=1
+	for ((i=1000; i < 10000 ; i++))
+	   do
+	      a=$(($i*26))
+	      for (( j=1; j < $i/2; j++))
+	      do
+		      if [[ $(($j*$j)) -eq $a ]]
+		      then
+			      echo $i
+		      fi
+	      done
+      done
+}
+
+
+
+
+function task165
+{
+	echo "enter number "
+	read a
+	b=$(($a%10))
+	a=$(($b*$a))
+	if [[ (($b -eq 1 || $b -eq 3 || $b -eq 7 || $b -eq 9)) && $a%3 -eq 0 ]]
+	then
+		t=true
+	else
+		t=false
+	fi
+	echo $t
+}
+
+
+function task166
+{
+	echo "enter number"
+	read a
+	b=$(($a%10))
+	a=$(($b*$a))
+	if [[ (( $b -eq 1 || $b -eq 4 || $b -eq 6 )) && $a%4 -eq 0 ]]
+	then
+		y=1
+	else 
+		y=0
+	fi
+	echo $y
+
+}
+
+
+
+
+
+
