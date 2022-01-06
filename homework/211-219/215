@@ -1,0 +1,14 @@
+#!/bin/bash
+
+array=($@)
+sum=0
+for i in ${!array[@]}
+  do
+    if [[ $i%2 -eq 0 && $i -ne 0 ]]
+      then 
+        sum=$(($sum+${array[i]}))
+    fi
+	
+done
+echo $sum
+
