@@ -10,7 +10,7 @@ find_dir () {
 		    then
 			    find_dir ${name}
 			    
-		  else
+		else
 		     echo ${name}
 	         
 		  fi
