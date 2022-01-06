@@ -1,6 +1,6 @@
 #!/bin/bash
 arr=($@)
-arr=($@)
+
 count=0
 mul=1
 if [[ ${#arr[@]} -eq 0 ]]
