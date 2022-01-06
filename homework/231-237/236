@@ -1,0 +1,14 @@
+#!/bin/bash
+count=0
+mul=1
+array=($@)
+   for i in ${array[@]}
+    do
+      if [[ i%2 -ne 0 ]]
+       then 
+        mul=$(($mul*$i))
+         count=$(($count+1))
+      fi
+    done
+echo "mul=$mul
+      count=$count"

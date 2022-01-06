@@ -1,0 +1,14 @@
+#!/bin/bash
+sum=0
+count=0
+array=($@)
+  for i in ${array[@]}
+   do
+     if [[ $i%2 -ne 0 ]]
+      then
+        sum=$(($sum+$i))
+        count=$(($count+1))
+        mt=$(($sum/$count))
+     fi
+   done
+ echo "$mt"
