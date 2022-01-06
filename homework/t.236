@@ -1,0 +1,14 @@
+#!/bin/bash
+s=1
+c=0
+arr=( 4 6 41 13 2 34 71 )
+  for i in ${arr[@]}
+     do
+       if [[ $i%2 -ne 0 ]]
+         then
+          s=$(($s*$i))
+          c=$(($c+1))
+       fi
+     done
+echo "Artadryal=$s
+Qanak=$c"
