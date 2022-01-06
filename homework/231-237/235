@@ -4,7 +4,13 @@ sum=0
 count=0
 array=($@)
   for i in ${array[@]}
-    do 
+    do
+	   if ! [[ $i =~ ^[[:digit:]]+$ ]]
+              then
+                 echo "type numbers"
+                 exit
+           fi
+
      if [[ i%2 -ne 0 ]]
       then
         sum=$(($sum+$i))

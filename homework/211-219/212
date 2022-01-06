@@ -4,26 +4,21 @@ count=0
 array=($@)
   for i in ${array[@]}
      do
-	     if ! [[ $i =~ ^[[:digit:]]+$ ]]
+             if ! [[ $i =~ ^[[:digit:]]+$ ]]
                    then
                  echo "type numbers"
                  exit
              fi
 
-             if [[ $i -lt 0 ]]
+             if [[ $i -gt 0 ]]
                then
                  sqr=$(($i*$i))
-                 sum=$(($sum+$sqr))
-	         count=$(($count+1))
-                 total=$(bc<<<"scale=1;$sum/$count") 
+                 sum=$(($sum+$i))
+                 count=$(($count+1))
+                 total=$(bc<<<"scale=1;$sum/$count")
               fi
 
      done
        echo "e( l($total)/2 )" | bc -l
-
-
-
-
-
 
 

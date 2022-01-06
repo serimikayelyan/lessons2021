@@ -1,19 +1,20 @@
 #!/bin/bash
 
 array=($@)
-b=1
+sum=0
 for i in ${!array[@]}
   do
-	  if ! [[ $i =~ ^[[:digit:]]+$ ]]
+          if ! [[ $i =~ ^[[:digit:]]+$ ]]
               then
                  echo "type numbers"
                  exit
            fi
 
     if [[ $i%2 -ne 0  ]]
-      then 
-	      d=$((${array[i]}*${array[i]}))
-	      b=$(($b*$d))
+      then
+              sum=$(($sum+${array[i]}))
+         
     fi
  done
- echo "$b" 
+ echo "$sum" 
+              

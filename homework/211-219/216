@@ -1,0 +1,22 @@
+#!/bin/bash
+
+array=($@)
+mul=1
+for i in ${!array[@]}
+  do
+           if ! [[ $i =~ ^[[:digit:]]+$ ]]
+              then
+                 echo "type numbers"
+                 exit
+            fi
+
+    if [[ $i%2 -eq 0 && $i -ne 0 ]]
+      then
+        mul=$(($mul*${array[i]}))
+    fi
+
+done
+echo $mul
+
+                                                                                                                                    
+          

@@ -4,6 +4,12 @@ array=($@)
 count=0
 for i in ${array[@]}
    do 
+	   if ! [[ $i =~ ^[[:digit:]]+$ ]]
+              then
+                 echo "type numbers"
+                 exit
+           fi
+
      if [[ i%2 -eq o ]]
       then
         count=$(($count+1))
