@@ -1,0 +1,23 @@
+#!/bin/bash
+
+array=($@)
+
+count=0
+mlt=1
+
+for i in ${array[@]}
+do
+    if [[ $i =~ ^[-0-9]+$ ]]
+    then
+	    if [[ $i%2 -ne 0 ]]
+	    then
+		    mlt=$(($i*$mlt))
+		    count=$(($count+1))
+	    fi
+    else
+	    echo "$i is not a number"
+    fi
+done
+
+echo "multiplying: $mlt"
+echo "count of odd numbers: $count"
