@@ -1,8 +1,8 @@
 #!/bin/bash
-arr=(-1 5 78 0 -10 -98 -23 0.2 41 88 -8)
+arr=(-1 5 78 0 -10 -98 -23 2 41 88 -8)
 count=0
 sum=0
-for i in ${#arr[@]}
+for i in ${arr[@]}
  do
          if [[ $i -gt  0 ]]
            then
