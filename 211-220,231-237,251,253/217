@@ -1,0 +1,12 @@
+#!/bin/bash
+
+list=( 5 2 12 3 8 4 )
+res=1
+for i in ${!list[@]}; do
+    if [[ $i%2 -ne 0 ]]; then
+        res=$(($res*(${list[$i]}*${list[$i]})))
+    fi
+done
+echo "List is:" ${list[@]}
+echo "Result is:" $res
+	    

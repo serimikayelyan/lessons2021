@@ -1,0 +1,11 @@
+#!/bin/bash
+
+list=( 5 78 3 6 10 7 )
+sum=0
+for i in ${!list[@]}; do
+    if [[ $i -ne 0 && $i%2 -eq 0 ]]; then
+        sum=$(($sum+${list[$i]}))
+    fi
+done
+echo "List is:" ${list[@]}
+echo "sum is:" $sum

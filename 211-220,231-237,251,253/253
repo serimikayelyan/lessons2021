@@ -1,0 +1,17 @@
+#!/bin/bash
+
+list=( 5 2 12 3 8 4 )
+num1=0
+num2=${list[0]}
+sum=0
+for i in ${list[@]}; do
+    if [[ $i -gt $num1 ]]; then
+        num1=$i
+    elif [[ $i -lt $num2 ]];then
+	num2=$i
+    fi
+done
+sum=$(($num1+$num2))
+echo "List is " ${list[@]}
+echo "Result is: " $sum
+

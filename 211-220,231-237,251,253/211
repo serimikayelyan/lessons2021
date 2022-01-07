@@ -1,0 +1,15 @@
+#!/bin/bash
+
+list=( 2 0 5 12 6 7 45 28 )
+count=0
+sum=0
+res=0
+for i in ${list[*]}; do
+    if [[ $i -ne 0 && $i%2 -eq 0 ]]; then
+        sum=$(($sum+$i))
+	count=$(($count+1))
+    fi
+done
+res=$(($sum/$count))
+echo "List is:" ${list[@]}
+echo "Result is: "$res

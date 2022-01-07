@@ -1,0 +1,15 @@
+#!/bin/bash
+
+list=( 5 2 12 3 8 4 )
+num=0
+count=0
+res=0
+for i in ${list[@]}; do
+    if [[ $i -gt $num ]]; then
+        num=$i
+       
+    fi
+done
+echo "List is " ${list[@]}
+echo "Result is: " $num
+

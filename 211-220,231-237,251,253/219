@@ -1,0 +1,12 @@
+#!/bin/bash
+arr=(1 5 63 4 124)
+read a
+count=0
+for i in ${!arr[@]}; do
+	if [[ $i -ne 0 && $i%$a -eq 0 ]]; then
+	   count=$(($count+1))
+
+	fi
+
+done
+echo $count
