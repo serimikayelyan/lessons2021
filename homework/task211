@@ -1,0 +1,13 @@
+#!/bin/bash
+arr=($@)
+s=0
+n=0
+for i in ${arr[@]};do
+        if [[ $i -gt 0 ]];then
+         s=$(($s+$i))
+         n=$(($n+1))
+        fi
+done
+        a=$(($s/$n))
+echo $a
+

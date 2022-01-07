@@ -1,0 +1,11 @@
+#!/bin/bash
+arr=($@)
+s=1
+for i in ${!arr[@]};do
+	if [[ $i%2 -ne 0 ]];then
+		b=$((arr[$i]))
+		a=$(($b*$b))
+		s=$(($s*$a))
+	fi
+done
+echo $s

@@ -1,0 +1,11 @@
+#!/bin/bash
+arr=($@)
+b=0
+a=0
+for i in ${arr[@]};do
+if [[ $i%2 -eq 0 ]];then
+b=$((${!arr[$i]}))
+a=$(($a+1))
+fi
+done
+echo $a

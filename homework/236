@@ -1,0 +1,12 @@
+#!/bin/bash
+arr=($@)
+y=1
+b=0
+for i in ${arr[@]};do
+if [[ $i%2 -ne 0 ]];then
+b=$(($b+1))
+y=$(($y*$i))
+fi
+done
+echo $b
+echo $y 

@@ -1,0 +1,29 @@
+#!/bin/bash
+#     ___________
+#    / 2  2      \
+#   / A +B
+#  / ---------
+#\/     2
+
+
+
+
+
+arr=($@)
+s=0
+n=0
+for i in ${arr[@]};do
+if [[ $i -lt 0 ]];then
+a=$(($i*$i))
+s=$(($s+$a))
+n=$(($n+1))
+fi
+done
+b=$(($s/$n))
+z=`echo "sqrt ($b)" | bc`
+echo $z
+
+
+
+
+
