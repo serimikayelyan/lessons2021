@@ -1,6 +1,5 @@
 #!/bin/bash
-#this does not work)
-
+echo " use this syntax:./find.sh ./dirname(in current directory)"
 
 find_dir () {
 	for name in ${1}/*
@@ -11,11 +10,14 @@ find_dir () {
 			    find_dir ${name}
 			    
 		else
-		     echo ${name}
+		     echo ${name} 
 	         
 		  fi
+
 	 done
 
 }
+
 find_dir ${1}
+
 
