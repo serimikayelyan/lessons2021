@@ -1,5 +1,6 @@
 #!/bin/bash
-echo " use this syntax:./find.sh ./dirname(in current directory)"
+###### use this syntax:./find.sh ./dirname(in current directory) or ./find.sh ./ to see the current directory files
+
 
 find_dir () {
 	for name in ${1}/*
