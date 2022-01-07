@@ -1,0 +1,12 @@
+#!/bin/bash
+arr=(2 4 6 15 23)
+let=1
+for i in ${arr[@]}
+do
+	if (( $i % 2 == 0 ))
+then
+	 sum=$((sum+$i))
+	let=$((let*$i))
+fi
+done
+echo $sum $let

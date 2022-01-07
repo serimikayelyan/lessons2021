@@ -1,0 +1,14 @@
+#!/bin/bash
+
+arr=(5 3 6 9 8 4 1)
+
+for i in ${arr[@]}
+do
+	if (( $i % 2 == 0 ))
+then
+	var=$(($var+$(($i*$i))))
+fi
+done
+echo $var
+
+

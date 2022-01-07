@@ -1,0 +1,11 @@
+#!/bin/bash
+arr=(25 64 8 41 75)
+
+for i in ${!arr[@]}
+do
+	if (( $i % 2 == 0 ))
+	then
+	sum=$((sum+$i))
+	 fi
+done
+echo $sum

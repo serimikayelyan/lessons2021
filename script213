@@ -1,0 +1,18 @@
+#!/bin/bash
+
+arr=(-5 -6 12 -5 8 9 )
+
+ for i in ${arr[@]}
+do
+	if (( $i < 0 ))
+then
+     ((var++))
+     sqrt=$i*$i
+     sum=$(($sum+$sqrt))
+     let=$(echo "sqrt($sum)" | bc)
+	fi
+done
+echo $(($let/$var))
+
+	
+
