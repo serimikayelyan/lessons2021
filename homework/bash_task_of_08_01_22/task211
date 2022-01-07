@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arr=(5 65 -78 58 -5 -21 36)
+a=0
+b=0
+for i in ${arr[@]};do
+    if [[ $i -gt 0 ]]; then
+    a=$(($a+1))
+    b=$(($b+$i))
+    fi
+done
+echo "The arithmetic average: $(($b/$a))"

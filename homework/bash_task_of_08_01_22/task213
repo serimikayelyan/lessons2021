@@ -1,0 +1,14 @@
+#!/bin/bash
+
+arr=(5 65 0 -78 58 -5 -21 36)
+a=0
+b=1
+c=0
+for i in ${arr[@]};do
+    if [[ $i -lt 0 ]]; then
+	    a=$(($a+1))
+	    b=$(($i*$i))
+	    c=$(($c+$b))
+    fi
+done
+echo "Middle square: $(($c/$a))"

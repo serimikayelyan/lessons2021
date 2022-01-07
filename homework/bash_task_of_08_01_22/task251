@@ -1,0 +1,10 @@
+#!/bin/bash
+
+arr=(5 65 0 -78 58 0 -5 -21 36)
+max=arr[0];
+for i in ${arr[@]};do
+    if [[ $i -gt $max ]]; then
+		max=$i
+	fi
+done
+echo "The biggest element: $max"
