@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arr=(2 7 4 5 8 12)
+
+for i in ${arr[@]}
+do
+	if (( $i % 2 == 0 ));then
+		var=$((var+$(($i * $i))))
+	fi
+done
+
+echo $var

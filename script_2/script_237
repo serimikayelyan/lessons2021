@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arr=(0 3 2 7 8 1 5 0)
+
+for i in ${arr[@]}
+do
+	if [[ $i -eq 0 ]]; then
+		((let++))		
+	fi
+done
+
+echo $let

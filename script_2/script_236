@@ -1,0 +1,15 @@
+#!/bin/bash
+
+arr=(3 8 9 2 5 2 12)
+sum=1
+
+for i in ${arr[@]}
+do
+	if (( $i % 2 != 0 )); then
+		((let++))
+		sum=$(($sum*$i))
+	fi
+done
+
+echo $let
+echo $sum

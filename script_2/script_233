@@ -1,0 +1,15 @@
+#!/bin/bash
+
+arr=(3 5 8 14 22 6 9)
+var=1
+
+for i in ${arr[@]}
+do
+	if (( $i % 2 == 0 )); then
+		sum=$((sum+$i))
+		var=$((var*$i))		
+	fi
+done
+
+echo $sum
+echo $var
