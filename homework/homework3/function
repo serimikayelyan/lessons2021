@@ -1,0 +1,195 @@
+#!/bin/bash
+arr=( 1 2 5 -3 4 8 )
+
+task_211() {
+a=0
+b=0
+for i in ${arr[@]}
+do
+
+        if [[ ${arr[$i]} -gt 0 ]]
+            then
+              a=$(($a + ${arr[$i]}))
+              b=$(($b + 1))
+        fi
+
+done
+
+echo $(($a / $b))
+}
+
+task_215() {
+a=0
+for i in ${!arr[@]}
+do
+
+        if [[ $i%2 -eq 0 && $i -ne 0 ]]
+              then
+                a=$(($a + ${arr[$i]} ))
+            fi
+
+
+done
+echo $a
+}
+
+task_217() {
+a=1
+for i in ${!arr[@]}
+do
+
+        if [[ $i%2 -ne 0 && $i -ne 0 ]]
+              then
+                a=$(($a * $((arr[$i] * arr[$i])) ))
+            fi
+
+
+done
+echo $a
+}
+
+
+task_231() {
+a=0
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i]%2 -eq 0 ]]
+              then
+                a=$(($a + $((arr[$i] * arr[$i])) ))
+            fi
+
+
+done
+echo $a
+}
+
+
+task_232() {
+a=0
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i]%2 -eq 0 && arr[$i] -ne 0 ]]
+              then
+                a=$(($a + 1))
+            fi
+
+
+done
+echo $a
+}
+
+
+task_233() {
+a=1
+b=0
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i]%2 -eq 0 && arr[$i] -gt 0 ]]
+              then
+                a=$(($a * arr[$i]))
+                b=$(($b + arr[$i]))
+            fi
+
+
+done
+echo $a
+echo $b
+}
+
+
+task_234() {
+a=0
+b=0
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i]%2 -ne 0 && arr[$i] -gt 0 ]]
+              then
+                a=$(($a + arr[$i]))
+                b=$(($b + 1))
+            fi
+
+
+done
+echo $(($a/$b))
+}
+
+
+task_236() {
+a=1
+b=0
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i]%2 -ne 0 && arr[$i] -gt 0 ]]
+              then
+                a=$(($a * arr[$i]))
+                b=$(($b + 1))
+            fi
+
+
+done
+echo $a
+echo $b
+}
+
+
+task_237() {
+a=0
+
+for i in ${!arr[@]}
+do
+
+        if [[ arr[$i] -eq 0 ]]
+              then
+                a=$(($a + 1))
+            fi
+
+
+done
+echo $a
+}
+
+
+task_251() {
+a=0
+
+ for i in ${!arr[@]};
+ do
+
+        if [[ arr[$i] -gt $a ]]
+              then
+                a=$((arr[$i]))
+
+            fi
+
+
+done
+
+echo $a
+}
+
+
+task_253() {
+a=arr[0]
+b=o
+ for i in ${!arr[@]};
+ do
+
+        if [[ $a -gt arr[$i]  ]]
+              then
+                a=$((arr[$i]))
+        elif [[ $b -lt arr[$i] ]]
+              then
+                 b=$((arr[$i]))
+            fi
+
+
+done
+
+echo $(($a + $b))
+
+}
