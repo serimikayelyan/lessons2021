@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arr=(13 45 27 25 76 144 53)
+
+for i in ${!arr[@]}
+do
+	if (( $i % 2 == 0 )); then
+		((sum+=$i))
+	fi
+done
+
+echo $sum

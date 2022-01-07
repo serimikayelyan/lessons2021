@@ -1,0 +1,17 @@
+#!/bin/bash
+
+arr=(1 2 -3 4 -4 6 7 8)
+sqrt=1
+
+for i in ${arr[@]}
+do
+	if (( $i < 0 )); then
+		((let++))
+		sqrt=$i*$i
+		((sum+=$sqrt))
+		d=$(echo "sqrt($sum)" | bc)	
+	fi
+done
+
+echo $(($d/$let))
+

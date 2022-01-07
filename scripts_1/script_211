@@ -1,0 +1,18 @@
+#!/bin/bash
+
+arr=(18 -46 26 -3 78)
+var=0
+
+for i in ${arr[@]} 
+do
+	if [[ $i -gt 0 ]]; then
+		sum=$((sum+$i))
+		((let++))
+	else
+		((var++))
+	fi
+
+	if (( ${#arr[@]} - $var == $let )); then
+		echo $(($sum / $let))
+	fi
+done
