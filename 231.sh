@@ -5,7 +5,7 @@ k=0
 
 for i in ${list[@]}
 do
-    if [[ $i%2 -eq 0 && $i -ne 0 ]]
+    if [[ $i%2 -eq 0 ]]
     then
 
 	    f=$(($i*$i))
