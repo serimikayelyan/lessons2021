@@ -15,5 +15,10 @@ function calculate {
 	elif [[ $3 == '/' && $2 -ne 0 ]]; then
 		div=$(($1/$2))
 		echo $div
+	elif [[ $3 == '**' ]]; then
+		deg=$(($1**$2))
+		echo $deg
 	fi
 }
+
+calculate $@
