@@ -1,0 +1,66 @@
+#!/bin/bash
+
+charsS=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+charsC=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+list=()
+
+encoded=()
+
+function main
+{
+
+read -p 'Input text: ' text
+str="$text"
+
+read -p 'Num: ' num
+
+for (( i = 0; i < ${#str}; i++ ))
+do
+	list[$i]=${str:$i:1}
+done
+
+echo ${list[@]}
+echo ------
+
+for (( i = 0; i < ${#list[@]}; i++ ))
+do
+    for (( x = 0; x < ${#charsS[@]}; x++ ))
+    do
+        if [[ ${list[$i]} == ${charsS[$x]} ]]
+	then
+		sqNum=$(($x+$num))
+		
+		if [[ $sqNum -gt 26 ]]
+		then
+		    outNum=$(($sqNum-26))
+		    encoded[$i]=${charsS[$outNum]}
+
+	        else
+		encoded[$i]=${charsS[$sqNum]}
+		break
+		fi
+
+	elif [[ ${list[$i]} == ${charsC[$x]} ]]
+	then
+		sqNum=$(($x+$num))
+		
+		if [[ $sqNum -gt 26 ]]
+		then
+		    outNum=$(($sqNum-26))
+		    encoded[$i]=${charsC[$outNum]}
+
+	        else
+		encoded[$i]=${charsC[$sqNum]}
+		break
+		fi
+	fi
+    done
+done
+
+echo ${encoded[@]}
+}
+
+main
+
+   
