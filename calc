@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "Enter 1-st number: "
+read a
+echo "Enter 2-nd number: "
+read b
+echo "Enter type of operation: "
+echo "Addition: +
+Subtraction: - 
+Multiplication: *
+Division: / "
+read d
+res=0
+if [[ $a =~ ^[0-9]+$ && $b =~ ^[0-9]+$ ]]; then
+  case $d in
+    +) res=$(($a+$b))
+        echo " Result: $res";;	
+    -) res=$(($a-$b))
+        echo "Result: $res";;
+    "*") res=$(($a*$b))
+        echo "Result: $res";;
+    /) if [[ $a -eq 0 || $b -eq 0 ]]; then
+           echo "Error: Delimiter by zero";
+       else	 
+	   res=$(($a/$b));
+	fi
+        echo "Result: $res";;
+    *) echo "Error: operation can not found";;
+
+  esac
+else
+  echo "Error: enter numbers"
+fi
