@@ -6,20 +6,12 @@ var=0
     matrix[$i,$j]=$i+$j
     let var=${matrix[$i,$j]}
     echo -n "$var  "
-    if [[ $var%5 -eq 0 && $i>$j ]]; then
-
-
-
-
-
+    if [[ $var%2 -eq 0 && $(($i+$j))<$(($1-1)) ]]; then
                     sum=$(($sum + $var))
-                    num=$(($num+1))
-
-
-             fi
+                             fi
      done
          echo
 done
-     ave=$(($sum/$num))
-     echo $ave
+    
+echo $sum
 
