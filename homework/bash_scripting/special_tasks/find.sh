@@ -65,7 +65,8 @@ function main
     file_found+=(`recursive_find "$1" "$2"`)
 
     for i in ${file_found[@]}; do
-	echo $i
+	f_path=${i//"//"/"/"}
+	echo $f_path
     done
 
     if [[ ${#file_found[@]} -eq 0 ]]; then
