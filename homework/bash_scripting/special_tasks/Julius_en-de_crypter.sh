@@ -53,13 +53,17 @@ function encrypt
 
     for ((i=0;i<${#text};i++)); do
 	current_char=${text:$i:1}
+	current_char_lower=`tr A-Z a-z <<< $current_char`
 
-	if [[ ${char_to_int[$current_char]} ]]; then
-	    current_char_int=${char_to_int[$current_char]}
+	if [[ ${char_to_int[$current_char_lower]} ]]; then
+	    current_char_int=${char_to_int[$current_char_lower]}
 	    enc_char_int=$(($current_char_int + $key))
 	    [[ $enc_char_int -lt 0 ]] && ((enc_char_int+=$char_count))
 	    ((enc_char_int%=$char_count))
 	    enc_char=${int_to_char[$enc_char_int]}
+	    if [[ $current_char != $current_char_lower ]]; then
+		enc_char=`tr a-z A-Z <<< $enc_char`
+	    fi
 	else
 	    enc_char=$current_char
 	fi
@@ -118,4 +122,3 @@ function getPossibleDecryptions
 	fi
     done
 }
-getPossibleDecryptions
