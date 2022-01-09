@@ -18,5 +18,5 @@ elif [[ $nshan == "*" ]]; then
 elif [[ $nshan == "**" ]]; then
     echo $(( $tivN1 ** $tivN2 ))
 else 
-    echo "Ya poka ne mogu reshit takoe. Do svidanie <3"
+    echo "Ya poka ne mogu reshit takoe. Do svidaniya <3"
 fi
