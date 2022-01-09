@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#########################################################
-# If you see this, than I forgot to add comments. Sorry #
-#########################################################
-
 declare -A char_to_int
 declare -A int_to_char
 
@@ -24,7 +20,7 @@ function fill_char_info
 	((counter++))
     done
 
-    ((char_count=$counter + 1))
+    char_count=$counter
 }
 
 #encrypts given text, duh
@@ -58,10 +54,11 @@ function encrypt
     for ((i=0;i<${#text};i++)); do
 	current_char=${text:$i:1}
 
-	if [[ ${int_to_char[*]} =~ " $current_char " ]]; then
+	if [[ ${char_to_int[$current_char]} ]]; then
 	    current_char_int=${char_to_int[$current_char]}
-	    enc_char_int=$((($current_char_int + $key) % $char_count))
-	    [[ $enc_char_int -lt 0 ]] && ((enc_char_int+=$char_count - 1))
+	    enc_char_int=$(($current_char_int + $key))
+	    [[ $enc_char_int -lt 0 ]] && ((enc_char_int+=$char_count))
+	    ((enc_char_int%=$char_count))
 	    enc_char=${int_to_char[$enc_char_int]}
 	else
 	    enc_char=$current_char
@@ -87,11 +84,38 @@ function decrypt
     if [[ ! $key ]]; then
 	echo No key
 	return 1
-    elif [[ ! $key =~ ^[+-0-9]+$ ]]; then
+    elif [[ ! $key =~ ^[+-]?[0-9]+$ ]]; then
 	echo $key is not a number
 	return 2
     fi
     [[ ${#char_to_int} -eq 0 ]] && fill_char_info
     encrypt "$text" $(($key * -1))
 }
-encrypt
+
+function getPossibleDecryptions
+{ 
+    if [[ $# -eq 0 ]]; then
+	read -p "Input text: " text
+    else
+    	text=$1
+    fi
+
+    if [[ ! $text ]]; then
+	echo no text
+	return 3
+    fi
+
+    [[ ${#char_to_int} -eq 0 ]] && fill_char_info
+    for ((i=1;i<$char_count;i++)); do
+	val=`decrypt "$text" $i`
+	if [[ $? != 1 && $? != 2 ]]; then
+	    echo ">============---------"
+	    echo Key $i:
+	    echo "       $val"
+	    echo ">============---------"
+	else
+	    echo $val
+	fi
+    done
+}
+getPossibleDecryptions
