@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ ! -f $1 || ! $1 || ! $2 ]]
+then
+echo "You need to specify the source and file or directory where it will print our file "
+fi
+
+if [[ -f $1 ]]
+   then
+      if [[ -f $2 ]]
+         then
+            c=`cat $1`
+	    echo $c > $2
+    elif [[ -d $2 ]]
+    then
+	    c=`cat $1`
+	    cd $2
+	    echo $c > $2
+    elif [[ ! -f $2 || ! -d $2 ]]
+    then
+	    s=${2}
+	    touch $s
+	    c=`cat $1`
+	    echo $c > $s
+     fi
+fi
+
+
+#I need to add a version for dir1/file1
+
