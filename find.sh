@@ -1,21 +1,31 @@
-#!/bin/bash
+#!/bin/bash 
 
-for i in $1/
-do
-	if [[ -n "$i" ]]; then
-		if [[ -n "$2" ]]; then
-			result=`ls -Rp $i | grep -v / | grep "$2"`
-			if [[ -n $result ]]; then
-				echo "`realpath $result`"
+read -p 'Enter the required file name : ' b
+
+
+my_find ()
+{
+if [[ -n $1 ]]; then
+	if [[ -d $1 ]]; then
+		for i in $1/*
+		do
+			if [[ -n $b ]]; then	
+				if [[ -f $i ]]; then
+					echo $i | grep "$b"
+				elif [[ -d $i	 ]]; then
+					my_find $i
+				fi
 			else
-				echo "File does not exist"
+				echo "error : Missing file name"
+				break
 			fi
-		else
-			echo "Enter the file name"
-		fi
+		done
 	else
-		echo "Enter the path name"
+		echo "error : Enter the correct directory name"
 	fi
-done
+else
+	echo "error : Enter the name of the directory"
+fi
+}
 
-
+my_find $@
