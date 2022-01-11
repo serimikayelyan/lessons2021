@@ -7,12 +7,13 @@ my_find()
         do
                 filename=`basename $i`  
                if [[ -f $i && $filename == $2 ]]; then
-                        #echo $1/$2
                         realpath $i
-                elif [[ -d $i  ]]; then
+			#echo $1/$2
+                elif [[ -d $i   ]]; then
                         echo $i
-                        my_find $i
-                fi
+                        my_find $i $2 		
+              
+	       fi
         done
 }
 my_find $1 $2
