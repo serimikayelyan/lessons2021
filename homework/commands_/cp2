@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [[ ! -f $1 || ! $1 || ! $2 ]]
+then
+echo "You need to specify the source and file or directory where it will print our file "
+fi
+c=`cat $1`
+
+
+if [[ -f $1 ]]
+   then
+      if [[ -f $2 ]]
+         then
+            
+	    echo $c > $2
+      elif [[ -d $2 && ! $2 =~ "/" ]]
+          then
+	     
+	     cd $2
+	     echo $c > $2
+      elif [[ $2 =~ "/" ]]
+          then
+             st=$(echo "$2" | tr "/" '\t')
+             for i in $st
+               do
+                 cd $i
+	         last_file=$i
+	 done
+		 echo $last_file
+               
+	       
+         	if [[ -f $last_file ]]
+	        then
+	 	 
+	         echo $c > $last_file
+	 else
+		  
+	           cd ~/$2
+		   s=${1}
+		   touch $s
+	           echo $c > $s
+		   
+		fi
+      elif [[ ! -f $2 || ! -d $2 ]]
+             then
+	     s=${2}
+	     touch $s
+	     c=`cat $1`
+    	     echo $c > $s
+
+
+     fi
+fi
