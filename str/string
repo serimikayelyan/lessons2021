@@ -1,5 +1,0 @@
-#!/bin/bash
-read -p "enter the string" string
-read -p "split" split
-arrstring=(${string//$split/ })
-echo ${arrstring[@]}
