@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Enter text: "
+read  text
+echo "Enter char for split: "
+read char
+count=0
+
+if [[ $text == " " || $char == " " ]]; then
+    echo "Enter text or char to split"
+
+else
+    IFS="$char"
+    for i in $text; do
+        arr[$count]="$i"
+        count=$(($count+1))
+    done
+fi
+
+echo ${arr[@]}
