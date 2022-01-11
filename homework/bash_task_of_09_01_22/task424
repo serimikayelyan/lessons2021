@@ -1,0 +1,33 @@
+#!/bin/bash
+
+read -p "Insert m: " m
+declare -A matrix
+sum=0
+num=0
+
+for ((i=0;i<m;i++)); do
+	for ((j=0;j<m;j++)); do
+		matrix[$i, $j]=$RANDOM
+	done
+done
+
+echo
+for ((i=0;i<m;i++)); do
+	for ((j=0;j<m;j++)); do
+		printf "%d\t" ${matrix[$i, $j]}
+	done
+	echo
+done
+echo
+for ((i=0; i<m; i++)); do
+	for ((j=0;j<=$i;j++)); do
+		if ! [[ $(( ${matrix[$i, $j]} % 2 )) -eq 0 ]]; then
+			sum=$(( $sum + ${matrix[$i, $j]} ))
+			num=$(( $num + 1 ))
+		fi
+	done
+done
+echo " ________________ "
+echo
+echo "$sum/$num" | bc
+
