@@ -4,11 +4,12 @@ file=$2
 function find_
 {
 	for i in $dir/*; do
-		if [[ -f $i ]]; then
+		if [[ -f $i ]] && [[ $i =~ .*$file ]] 
+		then
 			echo $i
 		elif [[ -d $i ]]; then
 			dir=$i
-            find_ 
+            		find_ $dir $file
         fi
     done
 } 
