@@ -1,0 +1,42 @@
+#!/bin/bash
+
+
+function t.160
+{
+for (( i=100; i<1000; i++))
+    do
+      s=$(($i*16))
+      for (( j=1; j<$(($i/2)); j++ ))
+         do
+
+	    if [[ $(($j*$j)) -eq  $s ]]
+              then
+		      echo $i
+		      exit
+	    fi	   
+    done
+done
+
+
+}
+
+
+
+function t.161
+{
+for (( i=1000; i<10000; i++))
+    do
+      s=$(($i*26))
+      for (( j=1; j<$(($i/2)); j++ ))
+         do
+
+	    if [[ $(($j*$j)) -eq  $s ]]
+              then
+		      echo $i
+		      exit
+	    fi	   
+    done
+done
+}
+
+
