@@ -1,0 +1,105 @@
+#!/bin/bash
+
+BLUE="\e[34m"
+ENDCOLOR="\e[0m"
+
+function noArg
+{
+    for i in $path
+    do
+	if [[ -f $i ]]
+	then
+		for (( x = ${#i}; x >= 0; x-- ))
+		do
+		    if [[ ${i:$x:1} = / ]]
+		    then
+			strt=$(($x+1))
+			end=$((${#i}-$x))
+			fileName=${i:$strt:end}
+
+			echo "${line}$fileName"
+			break
+		    fi
+		done
+	fi
+	if [[ -d $i ]]
+	then
+		for (( z = ${#i}; z >= 0; z-- ))
+		do
+		    if [[ ${i:$z:1} == / ]]
+		    then
+			startP=$(($z+1))
+			endP=$((${#i}-$z))
+			dirName=${i:$startP:$endP}
+			
+			echo -e "${line}${BLUE}$dirName/${ENDCOLOR}"
+			break
+		    fi
+		done
+		path=$i/*
+		line+="~"
+		arg
+		line=${line:0:$lineLen}
+	fi
+    done
+}
+
+
+function arg
+{
+    for i in $path
+    do   
+	if [[ -f $i ]]
+	then
+		for (( x = ${#i}; x >= 0; x-- ))
+		do
+		    if [[ ${i:$x:1} = / ]]
+		    then
+			strt=$(($x+1))
+			end=$((${#i}-$x))
+			fileName=${i:$strt:end}
+
+			echo "${line}$fileName"
+			break
+		    fi
+		done
+	fi
+	if [[ -d $i ]]
+	then
+		for (( z = ${#i}; z >= 0; z-- ))
+		do
+		    if [[ ${i:$z:1} == / ]]
+		    then
+			startP=$(($z+1))
+			endP=$((${#i}-$z))
+			dirName=${i:$startP:$endP}
+			
+			echo -e "${line}${BLUE}$dirName/${ENDCOLOR}"
+			break
+		    fi
+		done
+		path=$i/*
+		line+="~"
+		arg
+		line=${line:0:$lineLen}
+	fi
+    done
+}
+
+function main
+{
+    line=""
+    lineLen=$((${#line}-1))
+    echo -e "${BLUE}$1/${ENDCOLOR}"
+    
+    if [[ $1 == "" ]]
+    then
+	    path=$PWD/*
+	    noArg
+    else
+	    path=$1/*
+	    arg
+    fi
+}
+
+main $1
