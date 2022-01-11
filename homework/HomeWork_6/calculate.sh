@@ -1,22 +1,22 @@
 # !/bin/bash
-#not completed
+
 function calculate {
-	if [[ ! $1 =~ ^[0-9]+$ || ! $2 =~ ^[0-9]+$ || $# -lt 3 ]]; then
+	if [[ ! $1 =~ ^[0-9]+$ || ! $3 =~ ^[0-9]+$ || $# -lt 3 ]]; then
 		echo Smth get wrong
-	elif [[ $3 == '+' ]]; then
-   		sum=$(($1+$2))
+	elif [[ $2 == "+" ]]; then
+   		sum=$(($1+$3))
 		echo $sum
-	elif [[ $3 == "-" ]]; then
-		sub=$(($1-$2))
+	elif [[ $2 == "-" ]]; then
+		sub=$(($1-$3))
 		echo $sub
-	elif [[ $3 == '*' ]]; then
-		mult=$(($1*$2))
+	elif [[ $2 == "x" ]]; then
+		mult=$(($1*$3))
 		echo $mult
-	elif [[ $3 == '/' && $2 -ne 0 ]]; then
-		div=$(($1/$2))
+	elif [[ $2 == "/" && $3 -ne 0 ]]; then
+		div=$(($1/$3))
 		echo $div
-	elif [[ $3 == '**' ]]; then
-		deg=$(($1**$2))
+	elif [[ $2 == "^" ]]; then
+		deg=$(($1**$3))
 		echo $deg
 	fi
 }
