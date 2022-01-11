@@ -1,0 +1,6 @@
+#!/bin/bash
+
+my_ip=(`ifconfig | grep inet | awk '{print $2}' | sed -n 1p`)
+echo $my_ip
+
+#kareli e terminalum grel "ifconfig | grep inet | awk '{print $2}' | sed -n 1p" ev ardyunqy nuyny klini

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+string=$(echo "$1" | tr "$2" '\t')
+
+for i in $string
+   do
+     echo $i
+   done
+
