@@ -1,0 +1,18 @@
+#!/bin/bash
+
+read -p "Enter your string : " a
+read -p "Enter the search field : " b
+
+function split ()
+{
+	if [[ -n $a && -n $b ]]; then
+		res=`echo $a | grep  "$b"`
+		if [[ -n $res ]]; then
+			echo "true"
+		else	
+			echo "false"
+		fi
+	fi
+}
+
+split 
