@@ -19,7 +19,7 @@ my_find()
 
                 elif [[ -d $i ]]; then
                         echo $i
-                        my_find $i
+                        my_find $i $2
 
 
 	         fi
