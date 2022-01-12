@@ -1,0 +1,19 @@
+#!/bin/bash
+declare -A arr
+s=0
+
+var=0
+for ((i=0 ; i<$1; i++));do
+        for ((j=0; j<$1 ; j++));do
+                arr[$i,$j]=$(($i+$j))
+                var=${arr[$i,$j]}
+                if [[ $var%2 -eq 0 && $(($i+$j))<$(($1-1)) ]];then
+                        s=$(($s+$var))
+                fi
+                echo -n ${arr[$i,$j]}
+        done
+        echo
+done
+
+echo $s
+
