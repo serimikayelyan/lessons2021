@@ -4,7 +4,11 @@ count=0
 array=($@)
   for i in ${array[@]}
      do
-             
+              if ! [[ $i == ?(-)+([0-9]) ]]
+                then
+                   echo "Not a number"           
+                exit 0
+             fi
         if [[ $i -lt 0 ]]
          then
           sum=$(($sum+$i))
