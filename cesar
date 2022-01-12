@@ -1,0 +1,33 @@
+#!/bin/bash
+
+read -p "enter the text : " str
+read -p  "number : " num
+
+for i in {{a..z},{A..Z}}; do
+	arr[$count]=$i
+	((count++))
+done
+
+for (( i=0; i < ${#str}; i++ )); do
+	index=0
+	if [[ ! "${arr[*]}" =~ "${str:$i:1}" ]]; then
+		new_text=${new_text}${str:$i:1}	
+	else
+		for j in ${!arr[@]}; do
+			if [[ ${arr[$j]} == ${str:$i:1} ]]; then
+				if [[ $(($index+$num)) -ge ${#arr[@]} ]]; then
+					new_index=$(($index+$num-${#arr[@]}))
+				else
+					new_index=$(($index+$num))
+				fi
+				new_char=${arr[$new_index]}
+		  	  	new_text=${new_text}${new_char}
+			  	break
+			fi	
+			((index++))
+		done
+	fi
+done
+
+echo "old text : $str"
+echo "new text : $new_text"
