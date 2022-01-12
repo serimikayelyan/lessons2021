@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#!/bin/bash
+
+read -p "run filePath" filePath1
+read -p "run fileName" fileName
+type="dir"
+
+for entry in $filePath1/*
+do
+
+IFS="/";
+read -a strarr <<< "$entry"
+lastItem=${strarr[-1]}
+
+if [[ "${lastItem/$fileName}" != "$lastItem" ]]; then
+
+        if [[ $type == "file" ]]; then
+        if [[ -f $entry ]]; then
+                echo "$lastItem"
+        fi
+else
+         if [[ -d $entry ]]; then
+                echo "$lastItem"
+        fi
+
+        fi
+fi
+done

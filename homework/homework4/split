@@ -1,0 +1,23 @@
+#!/bin/bash
+
+read -p "run string " string
+read -p "inchov split enel " splitBy
+
+newArr=();
+num=0;
+
+for ((i = 0; i < ${#string}; i++)); do
+
+        if [[ ${string:$i:1} == $splitBy ]]; then
+            num=$(($num + 1));
+        continue;
+    fi
+
+
+   newArr[$num]="${newArr[$num]}${string:$i:1}"
+
+done
+
+echo ${newArr[@]}
+
+
