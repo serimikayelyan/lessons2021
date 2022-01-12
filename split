@@ -1,0 +1,11 @@
+#!/bin/bash
+
+read -p "enter string : " str
+read -p "split : " split
+
+split_str=(${str//$split/ })
+
+echo "New string :  ${split_str[@]}"
+
+
+
