@@ -1,0 +1,7 @@
+#!/bin/bash
+read text
+IFS=' '
+read -ra arr <<< $text
+for i in "${arr[@]}"; do
+    echo "$i"
+done
