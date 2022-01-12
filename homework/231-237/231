@@ -4,10 +4,11 @@ array=($@)
 sum=0
 for i in ${array[@]}
    do 
-          if ! [[ $i =~ ^[[:digit:]]+$ ]]
-              then
-                 echo "type numbers"
-           fi     
+          if ! [[ $i == ?(-)+([0-9]) ]]
+           then	
+	     echo "Not a number"	   
+		exit 0
+          fi     	     
     if [[ i%2 -eq 0 ]]
       then
         i=$(($i*$i))
