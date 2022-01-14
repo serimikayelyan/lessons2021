@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 #sorting by PIDs
 
 function sortingPids
@@ -37,6 +35,8 @@ function processes
 {
 
 top=""
+
+echo "  PID USER                PR        NI        VIRT       RES        S         %MEM      COMMAND"
 
 for i in ${pids[@]}
 do
@@ -178,7 +178,6 @@ do
     line+=$ProcName
 
     echo $line
-
 done
 }
 
@@ -201,6 +200,12 @@ done
 
 sortingPids
 processes
+
+while true
+do
+    sleep 5
+    main
+done
 }
 
 main
