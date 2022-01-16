@@ -39,6 +39,7 @@ function pow
     echo $power
 }
 
+#Seting spaces between operators and numbers
 function setSpaces
 {
     local expression="$1"
@@ -53,6 +54,7 @@ function setSpaces
     echo "$expression"
 }
 
+#Checking for unknown characters
 function check
 {
     local input="`setSpaces "$1"`"
@@ -78,11 +80,13 @@ function check
     fi
 }
 
+#Sets spaces, and joins [+-] signs if needed
 function setUp
 {
     local expression="$1"
     expression=(`setSpaces "${expression[*]}"`)
-    
+   
+    #If expression starts wiht [+-] join it with next number 
     if [[ $expression =~ [+-] ]]; then
 	expression[0]+=${expression[1]}
 	unset expression[1]
@@ -90,6 +94,7 @@ function setUp
 	prev_elem=$expression
     fi
 
+    #Concatenates [+-] signs with next number, if previous char is an operator
     local prev_elem=$expression
     for ((i=1;i<((${#expression[@]} - 1));i++)); do
 	if [[ ${expression[$i]} =~ [+-] && ${operators[*]} =~ $prev_elem ]]; then
@@ -103,6 +108,7 @@ function setUp
     echo "${expression[*]}"
 }
 
+#Get bracket count
 function bracketCount
 {
     local expression=($1)
@@ -121,6 +127,7 @@ function bracketCount
     echo "$o_count $c_count"
 }
 
+#Get bracket "coords"
 function findBrackets
 {
     local expression=($1)
@@ -142,6 +149,7 @@ function findBrackets
     echo ${pairIndexes[*]}
 }
 
+#Solves expression without prioritzing multiplications and etc.
 function dumbSolver
 {
     local expression=($1)
@@ -171,6 +179,7 @@ function dumbSolver
     echo $current_value
 }
 
+#Solves each bracket
 function solveBrackets
 {
     local expression=($1)
@@ -202,6 +211,7 @@ function solveBrackets
     echo ${expression[*]}
 }
 
+#Prioritizes multiplication, factorial, etc.
 function solvePrioritized
 {
     local expression=($1)
@@ -302,4 +312,3 @@ function main
     done
 }
 [[ $# -gt 1 ]] && echo "Use \"\" next time. (Main reason: '*' does this:" * ")" && return 3 
-main "$1"
