@@ -1,0 +1,49 @@
+#!/bin/bash
+
+array=($@)
+newArr=()
+
+arrNum=0
+
+for i in ${array[@]}
+do
+	if [[ $i =~ ^[-0-9]+$ ]]
+	then
+	    newArr[$arrNum]=$i
+	    arrNum=$(($arrNum+1))
+	else
+	    echo "$i is not a number"
+        fi
+done
+
+max=${newArr[0]}
+arrNum=0
+
+for (( i = 1; i < ${#newArr[@]}; i++ ))
+do
+    if [[ ${newArr[$arrNum]} -lt ${newArr[$i]} ]]
+    then
+	    max=${newArr[$i]}
+	    arrNum=$i
+    fi
+done
+
+echo $max
+
+min=${newArr[0]}
+arrNum=0
+
+for (( i = 1; i < ${#newArr[@]}; i++ ))
+do
+    if [[ ${newArr[$arrNum]} -gt ${newArr[$i]} ]]
+    then
+	    min=${newArr[$i]}
+	    arrNum=$i
+    fi
+done
+
+echo $min
+
+sum=$(($min+$max))
+
+echo "Sum: $sum"

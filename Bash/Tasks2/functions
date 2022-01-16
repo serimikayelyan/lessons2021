@@ -1,0 +1,365 @@
+#!/bin/bash
+
+function task151
+{
+    sum=0;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		let sum=$sum+$i
+	    fi
+    done
+    echo $sum
+}
+
+function task152
+{
+    sum=1;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		let sum=$sum*$i
+	    fi
+    done
+    echo $sum
+}
+
+function task153
+{
+    sum=0;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 2 ]]
+	    then
+		let sum=$sum+$i
+	    fi
+    done
+    echo $sum 
+}
+
+function task154
+{
+    sum=1;
+    #$1 is given argument
+
+    for (( i = 1; i <= $1/2; i++ ))
+    do
+	    if [[ $1%$i -eq 3 ]]
+	    then
+		let sum=$sum*$i
+	    fi
+    done
+    echo $sum
+}
+
+function task155
+{
+    sum=0
+
+    for i in {10..99}
+    do
+        if [[ $i%3 -eq 0 ]]
+	then
+            let sum=$sum+$i
+	fi
+    done
+    echo $sum
+}
+
+function task156
+{
+    sum=1
+
+    for i in {10..99}
+    do 
+	if [[ $i%3 -eq 0 && $i%5 -eq 0 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
+
+function task157
+{
+    sum=0
+
+    for i in {100..999}
+    do
+        if [[ $i%5 -ne 0 ]]
+	then
+	    let	sum=$sum+$i
+	fi
+    done
+    echo $sum
+}
+
+function task158
+{
+    sum=1
+
+    for i in {100..999}
+    do
+	if [[ $i%2 -ne 0 && $i%3 -ne 0 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
+
+function task159
+{
+    sum=1
+
+    for i in {100..999}
+    do
+	if [[ $i%3 -eq 1 && $i%4 -eq 2 ]]
+	then
+	    let sum=$sum*$i
+	fi
+    done
+    echo $sum
+}
+
+function task160 
+{
+    for i in {100..999}
+    do
+	let sum=($i*16)
+
+	#squareRoot is variable that calculates root of num then turns to string to check numbers after point
+	squareRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#squareRoot}; x++ ))
+	do
+		if [[ ${squareRoot:$x:1} = "." ]]
+		then
+			let endPoint=(${#squareRoot}-$x)
+			let startPoint=($x+1)
+
+			newstr=${squareRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task161
+{
+    for i in {1000..9999}
+    do
+	let sum=($i*26)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+	
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+
+	done
+
+    done
+
+}
+
+function task162
+{
+    for i in {9999..1000}
+    do
+	let sum=($i*14)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task163
+{
+    for i in {9999..1000}
+    do
+	let sum=($i*18)
+
+	sqrRoot="$(bc <<< "scale=2; sqrt($sum)")"
+
+	for (( x = 0; x <= ${#sqrRoot}; x++ ))
+	do
+		if [[ ${sqrRoot:$x:1} == "." ]]
+		then
+			let startPoint=($x+1)
+			let endPoint=(${#sqrRoot}-$x)
+			
+			newstr=${sqrRoot:$startPoint:$endPoint}
+
+			if [[ $newstr == "00" ]]
+			then
+				echo $i
+				exit 0
+			fi
+		fi
+	done
+    done
+}
+
+function task164
+{
+    for i in {100..999}
+    do
+	sum=$(bc <<< "scale=2; sqrt($i)")
+	if [[ $sum > $1 ]]
+	then
+		echo $i
+		exit 0
+	fi
+    done
+}
+
+
+# Being edited
+#function task165
+#{
+#    argument=$1
+#    tLogicVal=false;
+#
+#    root="$(bc <<< "scale=2; sqrt($argument)")"
+#    for (( i = 0; i <= ${#argument}; i++ ))
+#    do
+#	    if [[ ${root:$i:1} == "." ]]
+#	    then
+#		    let startPoint=($i+1)
+#		    let endPoint=(${#argument}-$i)
+#		    
+#		    str=${root:$startPoint:$endPoint}
+#		    
+#		    if [[ $str == "00" ]]
+#		    then
+#			    tLogicVal=true;
+#			    echo "true"
+#			    exit 0
+#
+#			    exit 0
+#		    fi    
+#	    fi
+#    done   
+#}
+
+function task168
+{
+    p=false
+
+    for (( i = 2; i < $1; i++ ))
+    do
+	    if [[ $1%$i -eq 0 ]]
+	    then
+		    echo "$p"
+		    exit 0
+	    else
+		    p=true
+		    echo "$p"
+		    exit 0
+	    fi
+    done
+}
+
+function task169
+{
+    let sum=($1+$2)
+    for (( i = 2; i < $sum; i++ ))
+    do
+	    if [[ $sum%$i -eq 0 ]]
+	    then
+		    z=6
+		    echo $z
+		    exit 0
+	    else
+		    z=5
+		    echo $z
+		    exit 0
+	    fi
+    done
+}
+
+function task170
+{
+    num=$1
+
+    ((num++))
+    
+    root="$(bc <<< "scale=2; sqrt($num)")"
+    
+    for (( i = 0; i <= ${#root}; i++ ))
+    do
+	    if [[ ${root:$i:1} == "." ]]
+	    then
+		    let startPoint=($i+1)
+		    let endPoint=(${#root}-$i)
+		    str=${root:$startPoint:$endPoint}
+
+		    if [[ $str == "00" ]]
+		    then
+			    echo "$num"
+			    exit 0 
+		    else
+			    task170 $num
+		    fi
+	    fi
+    done
+
+}
+
+function task171
+{
+    inputNum=$1
+    num=1
+
+    for (( i = 2; i <= $inputNum; i++ ))
+    do
+
+	num=$(($num*$i))
+
+    done
+
+    echo "$inputNum! = $num "
+}
+

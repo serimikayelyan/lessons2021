@@ -1,0 +1,28 @@
+#!/bin/bash
+
+list=($1 $2 $3)
+swap=0
+
+let length=${#list[@]}-1
+
+for (( i = 0; i <= $length; i++ ))
+do
+	x=$i
+	let y=$x+1
+
+	while [ $y -le $length ]
+	do
+		if [[ ${list[$x]} -lt ${list[$y]} ]]
+		then
+			let y=y+1
+		else
+			swap=${list[$x]}
+			list[$x]=${list[$y]}
+			list[$y]=$swap
+			let y=y+1
+		fi
+	done
+done
+
+echo ${list[@]}
+

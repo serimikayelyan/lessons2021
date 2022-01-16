@@ -1,0 +1,56 @@
+#!/bin/bash
+
+#For making this script run, first add bin directory on home directory, move this script file to just 
+#created bin directory then add executable permission to this script, and third add your bin directory
+#to path environment variable, PATH=~/bin:$PATH
+
+NEWPATH=$PWD/*
+PATHARG=$1/*
+
+
+function noArg
+{
+    for i in $NEWPATH
+    do
+        echo $i
+    
+        if [[ -d $i ]]
+        then
+       	    NEWPATH=$NEWPATH/*
+	    noArg
+	fi
+
+    done
+}
+
+function arg
+{
+    for i in $PATHARG
+    do
+	echo $i
+
+	if [[ -d $i ]]
+	then
+	    PATHARG=$PATHARG/*
+	    arg
+    	fi
+    done	
+}
+
+function main
+{
+    if [[ $1 == "" ]]
+    then
+        noArg
+    else
+	if [[ -d $1 ]]
+	then
+	    arg
+	else
+	    echo "No such directory"
+	fi
+    fi
+
+}
+
+main $1

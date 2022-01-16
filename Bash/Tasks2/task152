@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function main
+{
+    if [[ $1 == "" ]]
+    then
+	echo "argument is required"
+	exit 127
+    fi
+    source functions
+    task152 $1
+}
+
+main $1

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+array=($@)
+
+add=0
+mlt=1
+
+for i in ${array[@]}
+do
+    if [[ $i =~ ^[-0-9]+$ ]]
+    then
+	    if [[ $i%2 -eq 0 && $i -ne 0 ]]
+	    then
+		    add=$(($i+$add))
+		    mlt=$(($i*$mlt))
+	    fi
+    else
+	    echo "$i is not a number"
+    fi
+done
+
+echo "adding: $add"
+echo "multiplying: $mlt"
+
+

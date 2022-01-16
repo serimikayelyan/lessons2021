@@ -1,0 +1,229 @@
+#!/bin/bash
+
+charsS=(a b c d e f g h i j k l m n o p q r s t u v w x y z)
+charsC=(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+
+encoded=()
+
+function encrypt
+{
+read -p 'Input text: ' text
+str="$text"
+
+if [[ $text == "" ]]
+then
+	echo "Can not work on this string"
+	echo "Please correct your input field!"
+	exit 1
+fi
+
+read -p 'Num: ' num
+
+if [[ $num == "" ]]
+then
+	echo "Number field is required!"
+fi
+
+if [[ $num -le 25 ]]
+then    
+    echo $str
+    echo "<==============>"
+    
+    encrypt_text=""
+
+    for (( i = 0; i < ${#text}; i++ ))
+    do
+	char=${str:$i:1}
+        for (( x = 0; x < ${#charsS[@]}; x++ ))
+        do
+            if [[ $char == ${charsS[$x]} ]]
+    	    then
+        	if [[ $x -ge 14 && $x -le 25 ]]
+	    	then
+	    	    if [[ $num -le 25 ]]
+	    	        then
+	    	 	    if [[ $num -le $x ]]
+	    	 	    then
+	    	 		var1=$((25-$x)) #all chars count minus that char on which second loop cursor stays
+	    	 		var2=$(($num-$var1)) #input number minus var1 to find which letter should it be started first index
+	    	  		sqNum=$(($var2-1))
+	    	 		encrypt_text+="${charsS[$sqNum]}"
+	    	 		break
+	    	 	    elif [[ $num -gt $x ]]
+	    	 	    then
+	    	 		var1=$((25-$x))
+	    	 		var2=$(($num-$var1))
+	    	 		sqNum=$(($var2-1))
+	    	 		encrypt_text+="${charsS[$sqNum]}"
+	    	 		break
+	    	 	    fi
+	    	    fi
+	    	else
+    	    	    sqNum=$(($x+$num))	
+ 	    	    encrypt_text+="${charsS[$sqNum]}"
+    	    	    break
+	        fi	
+    	    elif [[ $char == ${charsC[$x]} ]]
+    	    then
+ 	    	if [[ $x -ge 14 && $x -le 25 ]]
+	    	then
+	    	 	    if [[ $num -le $x ]]
+	    	 	    then
+	    	 		var1=$((25-$x)) #all chars count minus that char on which second loop cursor stays
+	    	 		var2=$(($num-$var1)) #input number minus var1 to find which letter should it be started first index
+	    	  		sqNum=$(($var2-1))
+	    	 		encrypt_text+="${charsC[$sqNum]}"
+	    	 		break
+	    	 	    elif [[ $num -gt $x ]]
+	    	 	    then
+	    	 		var1=$((25-$x))
+	    	 		var2=$(($num-$var1))
+	    	 		sqNum=$(($var2-1))
+	    	 		encrypt_text+="${charsC[$sqNum]}"
+	    	 		break
+	    	 	    fi
+	    	    
+	    	else               
+                sqNum=$(($x+$num))
+ 	    	encrypt_text+="${charsC[$sqNum]}"
+    	    	break
+		fi
+    	    fi
+    	if [[ $x -eq 25 ]]
+    	then
+ 	    encrypt_text+="$char"
+    	    break
+    	fi
+        done
+    done
+    
+    echo $encrypt_text
+else
+    echo "You are out of range"
+    echo "Max num can be 25!"
+    echo "Please correct input"
+fi
+
+}
+
+function decrypt
+{
+
+read -p 'Input text: ' text
+str="$text"
+
+if [[ $text == "" ]]
+then
+	echo "Can not work on this string"
+	echo "Please correct your input field!"
+	exit 1
+fi
+
+read -p 'Num: ' num
+
+if [[ $num == "" ]]
+then
+	echo "Number field is required!"
+fi
+
+if [[ $num -le 25 ]]
+then    
+    echo $str
+    echo "<==============>"
+    
+    encrypt_text=""
+
+    for (( i = 0; i < ${#text}; i++ ))
+    do
+	char=${str:$i:1}
+        for (( x = 25; x >= 0; x-- ))
+        do
+	    if [[ $char == ${charsS[$x]} ]]
+	    then
+        	if [[ $x -ge 0 && $x -le 11 ]]
+	    	then
+	    	 	    if [[ $num -le $x ]]
+	    	 	    then
+	    	 		var1=$((25-$num)) 	#all chars count minus that char on which second loop cursor stays
+	    	 		var2=$((25-$x)) 	#input number minus var1 to find which letter should it be started first index
+	    	  		sqNum=$(($var1-$var2))
+	    	 		encrypt_text+="${charsS[$sqNum]}"
+	    	 		break
+	    	 	    elif [[ $num -gt $x ]]
+	    	 	    then
+	    	 		var1=$((25-$num))
+	    	 		var2=$(($var1+$x))
+	    	 		sqNum=$(($var2+1))
+	    	 		encrypt_text+="${charsS[$sqNum]}"
+	    	 		break
+	    	 	    fi
+	    	    
+	    	else
+    	    	    sqNum=$(($x-$num))	
+ 	    	    encrypt_text+="${charsS[$sqNum]}"
+    	    	    break
+
+		fi	
+	    elif [[ $char == ${charsC[$x]} ]]
+	    then
+         	if [[ $x -ge 0 && $x -le 11 ]]
+	    	then
+	    	 	    if [[ $num -le $x ]]
+	    	 	    then
+	    	 		var1=$((25-$num)) 	#all chars count minus that char on which second loop cursor stays
+	    	 		var2=$((25-$x)) 	#input number minus var1 to find which letter should it be started first index
+	    	  		sqNum=$(($var1-$var2))
+	    	 		encrypt_text+="${charsC[$sqNum]}"
+	    	 		break
+	    	 	    elif [[ $num -gt $x ]]
+	    	 	    then
+	    	 		var1=$((25-$num))
+	    	 		var2=$(($var1+$x))
+	    	 		sqNum=$(($var2+1))
+	    	 		encrypt_text+="${charsC[$sqNum]}"
+	    	 		break
+	    	 	    fi
+	    	    
+	    	else
+    	    	    sqNum=$(($x-$num))	
+ 	    	    encrypt_text+="${charsC[$sqNum]}"
+    	    	    break
+		fi	
+	    fi
+
+    	if [[ $x -eq 0 ]]
+    	then
+ 	    encrypt_text+="$char"
+    	    break
+    	fi 
+        done
+    done
+    
+    echo $encrypt_text
+else
+    echo "You are out of range"
+    echo "Max num can be 25!"
+    echo "Please correct input"
+fi
+}
+
+function main
+{
+    echo "1: for encrypting"
+    echo "2: for decrypting"
+
+    read -p 'Type here: ' choice
+
+    if [[ $choice -eq 1 ]]
+    then
+    	encrypt
+    elif [[ $choice -eq 2 ]]
+    then
+	decrypt
+    else
+	echo "Typed something wrong"
+	exit 1
+    fi
+}
+
+main
