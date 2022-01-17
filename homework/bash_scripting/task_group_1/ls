@@ -1,5 +1,0 @@
-# Add /home/$USER/lessons2021/homework/bash_scripting/task_group_1 to $PATH before /usr/bin/ or move this file to a directory which is listed in $PATH before /usr/bin/.
-# You can add files directory manually: export PATH="/home/$USER/lessons2021/homework/bash_scripting/task_group_1:"+$PATH
-# Thank you for your attention.
-
-echo Hello World
