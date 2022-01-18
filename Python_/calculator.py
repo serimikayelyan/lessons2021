@@ -2,30 +2,41 @@
 
 import sys
 
-num1 = input("First number is: ")
-if not num1.isdigit():
-    print("Please enter number.")
-    sys.exit()
 
-num2 = input("Second number is: ")
-if not num2.isdigit():
-    print("Please enter number.")
-    sys.exit()
+while True:
 
-num1 = int(num1)
-num2 = int(num2)
+    num1 = input("First number is: ")
+    if num1.lower() == "c":
+        break
 
-symbol = input("Enter the operation version (+, -, *, /): ")
-if symbol == "+" or symbol == "-" or symbol == "*" or symbol == "/":
-    if symbol == "+":
-        print(">>", num1+num2)
-    elif symbol == "-":
-        print(">>", num1-num2)
-    elif symbol == "*":
-        print(">>", num1*num2)
-    elif symbol == "/":
-        print(">>", num1/num2)
-else:
-    print("Please enter operation version.")
-    sys.exit()
+    if not num1.isdigit():
+        print("Please enter number.")
+        break
+
+       
+    num2 = input("Second number is: ")
+    if num2.lower() == "c":
+        break
+    if not num2.isdigit():
+        print("Please enter number.")
+        break
+
+    num1 = int(num1)
+    num2 = int(num2)
+
+    symbol = input("Enter the operation version (+, -, *, /): ")
+    if symbol.lower() == "c":
+        break
+    if symbol == "+" or symbol == "-" or symbol == "*" or symbol == "/":
+        if symbol == "+":
+            print(">>", num1+num2)
+        elif symbol == "-":
+            print(">>", num1-num2)
+        elif symbol == "*":
+            print(">>", num1*num2)
+        elif symbol == "/":
+            print(">>", num1/num2)
+        else:
+            print("Please enter operation version.")
+            break
 
