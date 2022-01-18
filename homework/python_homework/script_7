@@ -1,0 +1,15 @@
+#!/usr/bin/python
+
+sentence = input("Enter sentence: ")
+long_word = 0
+
+for word in sentence.split():
+    if(len(word) > long_word and word.isalpha()):
+        long_word = len(word)
+        longest = word
+
+    
+print(longest)
+
+
+    

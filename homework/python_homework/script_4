@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+
+string = input("enter the text: ")
+count = 0
+for el in string:
+    if el.isdecimal():
+        count += 1
+print(count)
+
+    	

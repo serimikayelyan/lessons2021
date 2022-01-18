@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+string=input("Enter the text: ") 
+count=0 
+
+for el in string:
+    if el.isalpha():
+        count += 1
+print(count) 

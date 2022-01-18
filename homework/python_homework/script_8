@@ -1,0 +1,13 @@
+#!/usr/bin/python
+
+sent = input("enter the sentence: ")
+maxx = 1
+for i in sent:
+    if i.isalpha():
+        newsent = sent.count(i)
+        if newsent > maxx:
+            maxx = newsent
+            letter = i
+
+print(letter,maxx )
+

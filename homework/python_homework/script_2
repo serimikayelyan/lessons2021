@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+string = input('Enter any text: ')
+for ch in string:
+
+    if ch.isalpha():
+        if ch not in "aeiouAEIOU":
+            print(ch )
+
+            
+    
+
+ 
+
+

@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+
+string = input("enter the str:  ")
+count = 0
+for el in string:
+    if  not el.isalpha():
+        if not el.isdigit():
+            count += 1
+        
+print(count)        
+	

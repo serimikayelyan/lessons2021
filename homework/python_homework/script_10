@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+print("For exiting use 'c'")
+
+while True:
+    string = input("enter the str:")
+   
+    long_word = 0  
+
+    if string == "c":
+        break
+    for word in string.split():
+        if(len(word) > long_word and word.isalpha()):
+            long_word = len(word)
+            longest = word
+    
+        
+        
+    print(longest)
+       

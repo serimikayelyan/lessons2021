@@ -1,0 +1,5 @@
+#!/usr/bin/python
+
+string = input("enter the str: ")
+print(' '.join(i[::-1] for i in string.split()))
+
