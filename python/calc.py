@@ -23,13 +23,13 @@ if operation.lower() == "c":
             sys.exit()
 if operation == "+" or operation == "-" or operation == "*" or operation == "/":
   if (operation == "+"):
-   print(add(num_1 + num_2))
+   print((num_1 + num_2))
   elif (operation == "-"):
    print((num_1 - num_2))
   elif (operation == "*"):
    print((num_1 * num_2))
   elif (operation == "/"):
-   print((num_1 / num_2)
+   print((num_1 / num_2))
   else:
    print ("SyntaxError")
    break
