@@ -2,4 +2,13 @@
 
 sent = input("Enter sentence: ")
 
-print(len(sent) - sent.count(" "))
+count = 0
+
+for i in range(len(sent)):
+
+	if sent[i].isalpha():
+
+		count += 1
+
+print("Count: ", count)
+
