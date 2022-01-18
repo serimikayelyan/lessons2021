@@ -1,0 +1,23 @@
+#!/bin/bash
+array=($@)
+max=${array[0]}
+min=${array[0]}
+for i in ${array[@]}
+  do
+        if ! [[ $i == ?(-)+([0-9]) ]]
+           then	
+	     echo "Not a number"	   
+		exit 0
+	fi     	
+         if [[ $i -ge $max ]]
+          then
+                  max=$i
+	 elif  [[ $i -lt $min ]]
+          then 
+                  min=$i
+         fi
+ done
+	
+ echo $(($max+$min))
+
+              

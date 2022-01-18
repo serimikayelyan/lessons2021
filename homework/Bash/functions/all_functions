@@ -1,0 +1,235 @@
+#!/bin/bash
+
+ function number151
+
+ {
+   sum=0
+   for (( i = 1; i <= $1/2; i++ ))
+   do
+     if [[ $1%i -eq 0 ]]
+     then
+        sum=$(($sum+$i))
+     fi
+   done
+    result=$(($sum+$1))
+    echo "result=$result"
+ } 
+
+
+
+
+ function number152
+
+ { 
+ a=1
+ for (( i=1; i <= $1/2; i++ ))
+   do
+     if [[ $1%i -eq 0 ]]
+     then
+     a=$a*$i
+     fi
+   done
+    result=$(($a*$1))
+    echo "result=$result"
+  }
+
+
+
+
+ function number153
+
+ {
+ result=0
+  for (( i=1; i <= $1; i++ ))
+   do
+    if [[ $1%i -eq 2 ]]
+    then
+    result=$(($result+$i))
+    fi
+   done
+   echo "result=$result"
+ }
+
+
+
+
+ function number154
+
+ {
+ result=1
+ for (( i=1; i <= $1; i++ ))
+   do
+     if [[ $1%$i -eq 3 ]]
+     then 
+	  result=$(($result*$i))
+     fi
+   done
+echo "result=$result"
+ }
+
+
+
+
+
+ function number155
+
+ {
+ sum=0
+ for (( i=10; i<100; i++ ))
+    do
+      if [[ $i%3 -eq 0 ]]
+      then
+          sum=$(($sum+$i))
+      fi
+    done
+ echo "result=$sum"
+ }
+
+
+
+
+
+ 
+ function number156
+
+ {
+ s=1
+ for (( i=10; i<100; i++))
+    do
+      if [[ $i%3 -eq 0 && $i%5 -eq 0 ]]
+      then
+          s=$(($s*$i))
+      fi
+   done
+ echo "result=$s"
+ } 
+
+
+
+
+
+
+ function number157
+
+ {
+ sum=0
+ for (( i=100; i<1000; i++ ))
+    do
+       if [[ $i%5 != 0 ]]
+       then
+	      sum=$(($sum+$i))
+       fi
+    done
+ echo "result=$sum"
+
+ }
+
+
+
+
+ function number158
+
+ {
+ h=1
+ for (( i=100; i<1000; i++ ))
+   do  
+     if [[ $i%2 -ne 0 && $i%3 -ne 0 ]]
+     then
+          h=$(( $h*$i ))
+     fi
+   done
+ echo "result=$h"
+ }
+
+
+
+ function number159
+
+ {
+ h=1
+ for (( i=100; i<1000; i++ ))
+    do 
+       if [[ $(($i%3)) -eq  1  &&  $(($i%4)) -eq 2 ]]
+        then
+ 	    h=$(($h*$i))
+        fi
+    done
+ echo "result=$h"
+ }
+
+
+
+ function number160
+
+ {
+ for (( i=100; i<1000; i++))
+    do
+      s=$(($i*16))
+      for (( j=1; j<$(($i/2)); j++ ))
+         do
+	    if [[ $(($j*$j)) -eq  $s ]]
+             then
+		      echo "result=$i"
+		      exit
+	    fi	   
+        done
+    done
+ } 
+
+
+
+
+
+
+ function number161
+
+ {
+ for (( i=1000; i<10000; i++))
+    do
+      h=$(($i*26))
+       for (( j=1; j<$(($i/2)); j++ ))
+         do
+	  if [[ $(($j*$j)) -eq  $h ]]
+          then
+	     echo "result=$i"
+	      exit
+	  fi	   
+         done
+    done
+ }
+
+
+
+                          
+
+
+
+function number164
+
+ {
+ for (( i=100; i<1000; i++))
+    do
+      for (( j=1; j<$(($i/2)); j++ ))
+         do
+	  if [[ $(($j*$j)) -eq $i && $j -gt $1 ]]
+          then
+	    echo "result=$i"
+		   exit
+	   fi
+        done
+    done
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

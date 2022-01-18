@@ -1,0 +1,19 @@
+#!/bin/bash
+
+array=($@)
+b=1
+for i in ${!array[@]}
+  do
+	 if ! [[ $i == ?(-)+([0-9]) ]]
+           then
+             echo "Not a number"           
+                exit 0
+        fi
+
+    if [[ $i%2 -ne 0  ]]
+      then 
+	      d=$((${array[i]}*${array[i]}))
+	      b=$(($b*$d))
+    fi
+ done
+ echo "$b" 
