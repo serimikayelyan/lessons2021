@@ -9,7 +9,7 @@ while True :
     reply = input("Enter a letter: ")
 
 
-    if  len(reply) > 6:
+    if  len(reply) > 2:
         print("Be carefull")
     elif reply == "g":
         word = "g" + word[1:]
@@ -34,7 +34,6 @@ while True :
         print(word)
     else:
         print("Please try again:")
-
 
     if word == "garlic":
         print("Congratulations")
