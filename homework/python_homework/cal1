@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+print("For exiting print 'c'")
+while True:
+
+    num_1 = input("enter the first number: ")
+    if num_1.lower() == "c":
+        break
+
+    operation = input('''please select the operation:
+    + for additon
+
+    - for substraction
+
+    * for multiplication
+
+    / for division
+    ''')
+
+    if operation.lower() == "c":
+        break
+    
+    num_2 = input("enter the second number: ")
+    if num_2.lower() == "c":
+        break
+    
+    num_1 = int(num_1)
+    num_2 = int(num_2)
+
+    if operation == "+":
+        print(num_1 + num_2)
+    
+    if operation == "-":
+        print(num_1 - num_2)
+
+    if operation == "*":
+        print(num_1 * num_2)
+
+    if operation == "/":
+        print(num_1 / num_2)
