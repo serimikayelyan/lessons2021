@@ -1,8 +1,0 @@
-#!/bin/bash
-source all_functions
-function main
-{
-number151 $1 
-}
-main $1
-

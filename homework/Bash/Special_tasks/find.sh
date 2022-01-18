@@ -9,7 +9,7 @@ my_find()
                if [[ -f $i && $filename == $2 ]]; then
                         realpath $i
 			#echo $1/$2
-                elif [[ -d $i   ]]; then
+                elif [[ -d $i && $filename == $2  ]]; then
                         echo $i
                         my_find $i $2 		
               
