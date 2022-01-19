@@ -1,0 +1,13 @@
+#!/bin/bash
+
+arr=( 1 4 7 10 12 )
+s=0
+   for i in ${arr[@]}
+     do
+       if [[ $i%2 -eq 0 ]]
+         then 
+           i=$(($i*$i))
+           s=$(($s+$i))
+       fi
+     done
+echo $s

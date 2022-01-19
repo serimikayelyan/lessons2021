@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+arr=( 2 3 50 10 91 7 54 74 )
+max=${arr[0]}
+for i in ${arr[@]}
+do
+	if [[ $i -ge $max ]]
+	then max=$i
+	fi
+done
+echo $max
+
+
