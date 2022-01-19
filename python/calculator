@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+
+import sys
+
+num = input("Enter first value: ")
+if not num.isdigit():
+    print("You should enter a number")
+    sys.exit()
+
+num1 = input("Enter second value: ")
+if not num1.isdigit():
+    print("You should enter a number")
+    sys.exit()
+action = input("Enter action symbol (+, -, /, *):  ")
+
+num = int(num)
+num1 = int(num1)
+
+
+if action == "+":
+    print(num + num1)
+elif action == "-":
+    print(num - num1)
+elif action == "*":
+    print(num * num1)
+elif action == "/":
+    print(num / num1)
+else:
+    print("comand not found! enter the correct character(+, -, *, /)")
+
+

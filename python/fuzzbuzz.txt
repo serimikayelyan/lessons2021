@@ -1,0 +1,37 @@
+#!/usr/bin/python3
+
+import sys
+
+m = input("Enter a number: ")
+if not m.isdigit():
+    print("you need to enter a number")
+    sys.exit()
+
+n = input("Enter a number: ")
+if not n.isdigit():
+    print("you need to enter a number")
+    sys.exit()
+
+n = int(n)
+m = int(m)
+start = 0
+end = 0
+if m > n:
+    start = n
+    end = m
+elif m < n:
+    start = m
+    end = n
+else:
+    print("error...enter different numbers")
+    sys.exit()
+
+
+for i in range(start, end + 1):
+    if i % 15 == 0:
+        print("FizzBuzz", i)
+    elif i % 3 == 0:
+        print("Fizz", i)
+    elif i % 5 == 0:
+        print("Buzz", i)
+
