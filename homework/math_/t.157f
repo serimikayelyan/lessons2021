@@ -1,9 +1,0 @@
-#!/bin/bash
-
-
-source function
-function main
-{
-t.15 
-}
-main 
