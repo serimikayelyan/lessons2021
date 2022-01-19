@@ -1,0 +1,16 @@
+#!/usr/bin/python
+
+import sys
+
+string = input("Enter sentence: ")
+
+num = 0
+if len(string) == 0:
+    print("enter string")
+    sys.exit()
+else:
+    for i in range(len(string)):
+        if string[i].isalpha():
+	        num += 1
+
+print(num)

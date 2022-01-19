@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+b = "aeuoi"
+
+text = input("Enter text ")
+
+
+for i in range(len(text)):
+    if not text[i] in b:
+        print(text[i])

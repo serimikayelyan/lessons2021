@@ -1,0 +1,13 @@
+#!/usr/bin/python
+
+string = input("enter naxadasutyun ")
+
+num = 0
+
+for i in range(len(string)):
+    if not string[i].isalpha() and not string[i].isdigit():
+        num += 1
+
+print(num)
+
+              

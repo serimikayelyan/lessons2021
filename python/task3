@@ -1,0 +1,7 @@
+#!/usr/bin/python
+
+text = input("Enter text ")
+
+
+text2 = text.swapcase()
+print(text2)
