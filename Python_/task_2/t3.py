@@ -10,7 +10,7 @@ if num.isdigit():
     num = int(num)
     if len(text) > num:
         print(text[:len(text)-len(num_)-num])
-    elif len(text) <= num:
+    else:
         print("The given number is greater than/equal to the count of letters:")
 else:
     print("Enter a quantitative number at the end of the sentence")
