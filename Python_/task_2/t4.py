@@ -6,7 +6,7 @@ text = input(">>>")
 line = text.split()
 last = line[-1]
 line2 = text.split(last)
-if last in line[:len(line)]:
+if last in line[:len(line2)-1]:
     for i in line2:
         print(i)
 else:

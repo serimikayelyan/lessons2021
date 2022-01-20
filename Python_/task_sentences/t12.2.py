@@ -5,8 +5,8 @@ text = input("Text: ")
 maxx = text.count(text[0])
 minn = text.count(text[1])
 index = 0
-min_letter = ""
-max_letter = ""
+min_letter = text[0]
+max_letter = text[1]
 
 while index < len(text):
     if text.count(text[index]) > maxx:
@@ -16,11 +16,9 @@ while index < len(text):
         minn = text.count(text[index])
         min_letter = text[index]
     index+=1
-
-text = text.replace(min_letter, "0")
-text = text.replace(max_letter, min_letter)
-text= text.replace("0", max_letter)
+for i in range(len(text)):
+    if text[i] == max_letter:
+        text = text[:i] + min_letter + text[i+1:]
+    elif text[i] == min_letter:
+        text = text[:i] + max_letter + text[i+1:]
 print(text)
-
-#Առաջին տառի max լինելու դեպքում չի աշխատում
-#Մնացած դեպքում նորմալ է
