@@ -36,7 +36,12 @@ while True:
             elif symbol == "*":
                 print(">>", num1*num2)
             elif symbol == "/":
-                print(">>", num1/num2)
+                if num1 == 0 and num2 == 0:
+                    print("0/0 տեսքի անորոշություն")
+                elif num2 == 0:
+                    print("The number is not divisible by 0")
+                elif not num2 == 0:
+                    print(">>", num1/num2)
         else:
             print("Please enter operation version.")
             break
