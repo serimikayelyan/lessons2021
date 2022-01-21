@@ -3,7 +3,6 @@
 
 text= input("Text: ")
 text_ = ""
-
 for i in range(len(text)):
     text_ = text[i] + text_
 

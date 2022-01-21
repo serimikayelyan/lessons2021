@@ -9,11 +9,12 @@ min_letter = ""
 max_letter = ""
 
 while index < len(text):
-    if text.count(text[index]) > maxx:
-        maxx = text.count(text[index])
+    c = text.count(text[index])
+    if c > maxx:
+        maxx = c
         max_letter = text[index]
-    if text.count(text[index]) < minn:
-        minn = text.count(text[index])
+    if c < minn:
+        minn = c
         min_letter = text[index]
     index+=1
 
@@ -21,6 +22,6 @@ text = text.replace(min_letter, max_letter)
 print(text)
 
 
-#I didn't reach the final result...
+
 #My code makes a few a lot, but not the other way around 
 
