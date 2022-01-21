@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+
+import sys
+unk_answ = "_____"
+answ = "paris"
+print("What is the capital France")
+
+while True: 
+    print(unk_answ)
+    answ_word = input("Enter the word : ")
+    answ_word = answ_word.lower()
+    
+
+    if answ_word.isalpha():
+        if len(answ_word) == 1:
+            if answ_word == "C":
+                sys.exit() 
+
+            if answ_word in answ:
+                ind = answ.find(answ_word)
+                if ind == 0:
+                    unk_answ = "P" + unk_answ[1:]
+                elif ind == 1:
+                    unk_answ = unk_answ[0] + "a" + unk_answ[2:]
+                elif ind == 2:
+                    unk_answ = unk_answ[:2] + "r" + unk_answ[3:]
+                elif ind == 3:
+                    unk_answ = unk_answ[:3] + "i" + unk_answ[4:]
+                elif ind == 4:
+                    unk_answ = unk_answ[:4] + "s"
+                
+                if unk_answ == "Paris":
+                    print(unk_answ)
+                    print("Congratulations you won, the correct answer was Paris.")
+                    break
+        else:
+            print("error -> please enter only one letter")
+    else:
+        print("error -> please enter only letter")
+
