@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+
+change = ""
+print("For exiting print 'exit' ") 
+while True:
+
+    asci  = input("Enter a letter or number(65-90,97-122): ")
+    if asci.lower() == "exit":
+        break
+    if asci.isalpha():
+        if len(asci) < 2:
+            change = ord(asci)    
+            print(asci,"is changing", change )
+            continue
+        else:
+            print(" enter one letter. ")
+            
+            continue
+
+    elif asci.isdigit():
+        asci = int(asci)
+        change = chr(asci)
+        print(asci,"is changing",change )
+    else:
+        print("Please, enter only letter or number.") 
+      
+	 

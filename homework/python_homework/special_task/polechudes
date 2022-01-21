@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+print("for exiting print 'exit'")
+print("Which planet is closest to the Sun?")
+answer = "_______"
+complete_answer = "mercury"
+print(answer)
+
+while True:
+    if complete_answer == answer:
+        print("thats the right answer")
+        break
+    letter = input("enter the letters: ")
+    if letter == "exit":
+        break
+    if letter in complete_answer:
+        for i in range(len(complete_answer)):
+            if complete_answer[i] == letter:
+                answer = answer[:i] + letter + answer[i+1:]
+                print("you are right, open the letter")
+                print(answer.lower())

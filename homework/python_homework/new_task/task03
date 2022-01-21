@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+
+
+sent = input("enter the sent: ")
+while len(sent) == 0:
+    print("enter the sent")
+    sent = input("enter the sent: ")	
+symbol = input("enter the symbol: ")
+while len(symbol) == 0 or len(symbol) > 1:
+    print("either did not enter or more than one was entered")    
+    symbol = input("enter one symbol: ")
+for i in range(len(sent)):
+    if sent[i] != symbol:
+
+                
+        print(sent[i], end = "")
+    else:
+        print()
+print()        

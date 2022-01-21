@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+
+sett = ""
+for i in range(100,909,2):
+    #if (i // 10) % 10 == 0 and not i % 10 == 4:
+    sett = str(i)
+    if sett[-1] != "4" and sett[1] == "0":
+        print(i)    

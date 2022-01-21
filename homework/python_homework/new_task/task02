@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+sent = input("enter the sentence: ")
+if sent == "":
+    print("enter the sent")
+
+num = input("enter the number: ")
+if not num.isdigit() or num == "":
+    print("enter the numbers")
+elif (int(num) > len(sent)):
+    print("number is bigger ")
+elif (int(num) == len(sent)):
+    print("the letters and numbers are equal")
+
+dell = int(num)*(-1)
+print(sent[:dell])
+
