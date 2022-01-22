@@ -3,6 +3,6 @@
 count = 0
 sentence = input("Enter a sentence: ")
 for i in sentence:
-	if i.isalpha() == True:
+	if i.isalpha():
 		count += 1
 print(count)
