@@ -31,7 +31,10 @@ while True:
         print(a - b)
     if oper == "*":
         print(a * b)
-    if oper == "-":
+    if oper == "/":
+        if b == 0:
+            print("Division by zero.")
+            continue
         print(a / b)
 
 #eval(input("expr"))
